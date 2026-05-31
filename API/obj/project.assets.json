@@ -3234,19 +3234,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musta\\.nuget\\packages\\": {}
+    "C:\\Users\\santi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "projectUniqueName": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
-      "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\obj\\",
+      "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3258,8 +3258,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj"
+            "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj"
             }
           }
         }
@@ -3316,7 +3316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

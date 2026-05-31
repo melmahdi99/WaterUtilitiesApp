@@ -1738,19 +1738,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musta\\.nuget\\packages\\": {}
+    "C:\\Users\\santi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\obj\\",
+      "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -1762,11 +1762,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj"
+            "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj"
+            "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -1808,7 +1808,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
