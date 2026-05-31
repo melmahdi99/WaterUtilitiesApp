@@ -1690,19 +1690,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musta\\.nuget\\packages\\": {}
+    "C:\\Users\\nkant\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\nkant\\Documents\\GitHubRevature\\FinalGroupProject\\WaterUtilitiesApp\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj",
-      "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Persistence\\obj\\",
+      "projectPath": "C:\\Users\\nkant\\Documents\\GitHubRevature\\FinalGroupProject\\WaterUtilitiesApp\\Persistence\\Persistence.csproj",
+      "packagesPath": "C:\\Users\\nkant\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nkant\\Documents\\GitHubRevature\\FinalGroupProject\\WaterUtilitiesApp\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\nkant\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -1714,8 +1714,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj"
+            "C:\\Users\\nkant\\Documents\\GitHubRevature\\FinalGroupProject\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\nkant\\Documents\\GitHubRevature\\FinalGroupProject\\WaterUtilitiesApp\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1757,7 +1757,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
