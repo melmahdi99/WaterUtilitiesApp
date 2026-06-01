@@ -4,3 +4,6 @@ Changed the 4th project path in the WaterUtilitiesApp.slnx from "WaterUtilitiesA
 
 I will be working with the billing entity
 
+I created a dbinitializer for billing
+
+created dtos for billing
