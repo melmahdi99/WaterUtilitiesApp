@@ -9,7 +9,7 @@ public class Billing
     // public decimal WaterMeterReading { get; set; }
     public decimal PriceRate { get; set; }
     public decimal TotalAmountDue { get; set; }
-    public DateTime DueDate { get; set; }
+    public DateOnly DueDate { get; set; }
     public DateTime TimePaid { get; set; }
     public bool IsPaid { get; set; }
 
