@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {}
+    "C:\\Dev\\WaterUtilitiesApp\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
+    "C:\\Dev\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Dev\\WaterUtilitiesApp\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Domain\\obj\\",
+        "projectPath": "C:\\Dev\\WaterUtilitiesApp\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\nyanr\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\WaterUtilitiesApp\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\nyanr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

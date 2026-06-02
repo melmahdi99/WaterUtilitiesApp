@@ -1,0 +1,12 @@
+C:\Dev\WaterUtilitiesApp\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Dev\WaterUtilitiesApp\Domain\bin\Debug\net10.0\Domain.dll
+C:\Dev\WaterUtilitiesApp\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.sourcelink.json
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.dll
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Dev\WaterUtilitiesApp\Domain\obj\Debug\net10.0\ref\Domain.dll
