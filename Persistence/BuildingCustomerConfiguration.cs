@@ -8,6 +8,7 @@ public class BuildingCustomerConfiguration : IEntityTypeConfiguration<BuildingCu
 {
     public void Configure(EntityTypeBuilder<BuildingCustomer> builder)
     {
+        // setting up the m:n relationship between Buildings and Customers
         builder.HasKey( bc => new { bc.BuildingId, bc.CustomerId });
     }
 }
