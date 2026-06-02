@@ -20,7 +20,9 @@ public class DbInitializerBilling
                 TotalAmountDue = 0, //this should be in dollars, calculated by multiplying the PriceRate by the MeterReading field in the WaterMeter table
                 DueDate = DateOnly.FromDateTime(DateTime.Now).AddDays(random.Next(-10, 30)), //FromDateTime is a method that converts DateTime to DateOnly, this is needed because the AddDays method is for DateTime not DateOnly
                 TimePaid = DateTime.Now.AddDays(random.Next(-10,30)), //adds a random time 
-                IsPaid = false //this should be determined through a conditional that determines whether the TimePaid is after the DueDate
+                IsPaid = false, //this should be determined through a conditional that determines whether the TimePaid is after the DueDate
+                CustomerId = Guid.NewGuid(),
+                WaterMeterId = Guid.NewGuid()
             };
         }
 
