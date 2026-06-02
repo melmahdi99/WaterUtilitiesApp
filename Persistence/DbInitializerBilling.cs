@@ -21,8 +21,8 @@ public class DbInitializerBilling
                 DueDate = DateOnly.FromDateTime(DateTime.Now).AddDays(random.Next(-10, 30)), //FromDateTime is a method that converts DateTime to DateOnly, this is needed because the AddDays method is for DateTime not DateOnly
                 TimePaid = DateTime.Now.AddDays(random.Next(-10,30)), //adds a random time 
                 IsPaid = false, //this should be determined through a conditional that determines whether the TimePaid is after the DueDate
-                CustomerId = Guid.NewGuid(),
-                WaterMeterId = Guid.NewGuid()
+                CustomerId = Guid.NewGuid(), //this should be a reference to the Customer entity in the final version of the app
+                WaterMeterId = Guid.NewGuid() //this should be a reference to the water meter entity in the final version of the app
             };
         }
 

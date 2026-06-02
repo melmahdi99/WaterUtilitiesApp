@@ -9,3 +9,7 @@ I created a dbinitializer for billing
 created dtos for billing
 
 added mapper functionality
+
+added repo, services, controller
+
+was able to successfully do the migration to a Docker container
