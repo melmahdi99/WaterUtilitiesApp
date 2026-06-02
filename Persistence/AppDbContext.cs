@@ -10,6 +10,6 @@ public class AppDbContext (DbContextOptions options) : DbContext(options)
     public required DbSet<Building> Buildings { get; set; }
     public required DbSet<Customer> Customers { get; set; } 
     public required DbSet<WaterMeter> WaterMeters { get; set; }   
-    public required DbSet<WaterTreatmentPlant> WaterTreatmentPlants { get; set; }
+    public required DbSet<Domain.WaterTreatmentPlant> WaterTreatmentPlants { get; set; }
        
 }

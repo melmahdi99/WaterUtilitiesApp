@@ -3239,11 +3239,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\obj\\",
+      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"

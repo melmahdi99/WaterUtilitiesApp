@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B7EIUKshkAg=",
+  "dgSpecHash": "Va70RRp5tRo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+  "projectFilePath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\musta\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\musta\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -60,9 +60,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'AutoMapper' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\API.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "filePath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\API\\API.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"

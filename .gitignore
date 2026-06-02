@@ -1,0 +1,11 @@
+# Exclude NuGet package build artifacts
+*.nupkg
+*.snupkg
+
+# Exclude auto-generated NuGet target and property files
+*.nuget.props
+*.nuget.targets
+
+# Exclude legacy packages folder (used in older packages.config setups)
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
