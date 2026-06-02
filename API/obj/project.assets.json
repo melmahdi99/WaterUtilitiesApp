@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "AutoMapper/12.0.1": {
@@ -3234,19 +3234,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musta\\.nuget\\packages\\": {}
+    "C:\\Users\\ashle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
+      "projectUniqueName": "C:\\Users\\ashle\\Documents\\Projects\\WaterUtilitiesApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\API.csproj",
-      "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\WaterUtilitiesApp\\obj\\",
+      "projectPath": "C:\\Users\\ashle\\Documents\\Projects\\WaterUtilitiesApp\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\ashle\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ashle\\Documents\\Projects\\WaterUtilitiesApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\musta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ashle\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3256,10 +3256,11 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\musta\\Documents\\Git_Repos\\WaterUtilitiesApp\\Application\\Application.csproj"
+            "C:\\Users\\ashle\\Documents\\Projects\\WaterUtilitiesApp\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\ashle\\Documents\\Projects\\WaterUtilitiesApp\\Application\\Application.csproj"
             }
           }
         }
@@ -3274,10 +3275,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "AutoMapper": {
@@ -3316,7 +3318,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
