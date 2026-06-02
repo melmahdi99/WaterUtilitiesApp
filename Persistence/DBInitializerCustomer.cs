@@ -31,8 +31,8 @@ public static class DBInitializerCustomer
         context.Customers.Add(new Customer
         {
             Id = Guid.NewGuid(),
-            FName = "Gian",
-            LName = "Customer",
+            FName = "Will",
+            LName = "Ethanson",
             BillingId = billingId
         });
 
