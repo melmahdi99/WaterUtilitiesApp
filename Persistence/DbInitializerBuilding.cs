@@ -70,7 +70,6 @@ public class DbInitializer
             KingdomName = kingdom.Name, 
             Latitude = lat,
             Longitude = lon,
-            WaterMeterId = random.Next(1, 10000)
         });
         }
 

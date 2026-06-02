@@ -13,6 +13,4 @@ public class Building
     public string KingdomName { get; set; }
     public decimal Latitude { get; set; }
     public decimal Longitude { get; set; }
-    //FKs
-    public int WaterMeterId { get; set; }
 }

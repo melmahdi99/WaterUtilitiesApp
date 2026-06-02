@@ -51,7 +51,6 @@ public class BuildingRepo : IBuildingRepo
         a.KingdomName = building.KingdomName;
         a.Latitude = building.Latitude;
         a.Longitude = building.Longitude;
-        a.WaterMeterId = building.WaterMeterId;
 
         await _context.SaveChangesAsync();
     }
