@@ -4,7 +4,7 @@ namespace Domain;
 
 public class WaterMeter
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public decimal MeterReading { get; set; }
     public bool IsOnline { get; set; }
 
