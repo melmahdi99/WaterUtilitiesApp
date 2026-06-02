@@ -4,7 +4,7 @@ namespace Domain;
 
 public class Building
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public required string BuildingType { get; set; }
     public int StreetNum { get; set; }
     public string StreetName { get; set; }
