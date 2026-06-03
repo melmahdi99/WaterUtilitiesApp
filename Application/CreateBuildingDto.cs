@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Application;
  
 public class CreateBuildingDto
@@ -6,6 +8,8 @@ public class CreateBuildingDto
     public int StreetNum { get; set; }
     public required string StreetName { get; set; }
     public required string StreetSuffix { get; set; }
+
+    [Range(10000, 99999)]
     public int ZipCode { get; set; }
     public required string KingdomName { get; set; }
 }
