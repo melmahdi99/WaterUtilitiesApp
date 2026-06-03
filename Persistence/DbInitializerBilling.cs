@@ -24,6 +24,8 @@ public class DbInitializerBilling
                 CustomerId = Guid.NewGuid(), //this should be a reference to the Customer entity in the final version of the app
                 WaterMeterId = Guid.NewGuid() //this should be a reference to the water meter entity in the final version of the app
             };
+
+            billings.Add(billing);
         }
 
 
@@ -33,6 +35,11 @@ public class DbInitializerBilling
             {
                 billing.IsPaid = true;
             };
-        };
+        }
+
+        context.Billings.AddRange(billings);
+        await context.SaveChangesAsync();
+
     }
+
 }

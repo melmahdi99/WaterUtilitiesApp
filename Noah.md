@@ -13,3 +13,5 @@ added mapper functionality
 added repo, services, controller
 
 was able to successfully do the migration to a Docker container
+
+my entity now has full crud, it passed the thunder client test and SQL query test
