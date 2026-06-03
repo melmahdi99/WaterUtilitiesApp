@@ -9,7 +9,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Domain.WaterTreatmentPlant, ReadWaterTreatmentPlantDto>();
+        CreateMap<Domain.WaterTreatmentPlant, ReadWaterTreatmentPlantDto>().ReverseMap();
         CreateMap<CreateWaterTreatmentPlantDto, Domain.WaterTreatmentPlant>();
     }
 }
