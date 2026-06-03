@@ -33,11 +33,6 @@ public class DbInit
             { 
                 "Way", "Road", "Street", "Lane", "Path" 
             };
-            var cityNames = new List<string>
-            {
-                "Ashenvale", "Brightwater", "Coldhaven", "Dawnmere", "Elderstone",
-                "Frostholm", "Grimwatch", "Hearthford", "Ironpeak", "Jadehollow"
-            };
             var kingdomNames = new List<string>
             {
                 "Ethonia", "Southport", "Westhold", "Northreach"
@@ -58,18 +53,18 @@ public class DbInit
                 var lat = kingdom.Lat + (decimal)(random.NextDouble() * 0.3 - 0.15);
                 var lon = kingdom.Lon + (decimal)(random.NextDouble() * 0.3 - 0.15);
 
-                buildings.Add(new Building
+                var building = new Building
                 {
-                    Id = Guid.NewGuid(),
                     BuildingType = buildingTypes[random.Next(buildingTypes.Count)],
                     StreetNum = random.Next(1, 9999),
                     StreetName = streetNames[random.Next(streetNames.Count)],
                     StreetSuffix = streetSuffixes[random.Next(streetSuffixes.Count)],
                     ZipCode = random.Next(10000, 99999),
-                    KingdomName = kingdom.Name, 
+                    KingdomName = kingdomNames[random.Next(kingdomNames.Count)], 
                     Latitude = lat,
                     Longitude = lon,
-                });
+                };
+                buildings.Add(building);
             }
         
         // populating the Customers DbSet
@@ -95,11 +90,12 @@ public class DbInit
             };
             for (int i = 0; i < 200; i++)
             {
-                customers.Add(new Customer
+                var customer = new Customer
                 {
                     FirstName = firstNames[random.Next(firstNames.Count)],
                     LastName = lastNames[random.Next(lastNames.Count)]
-                });
+                };
+                customers.Add(customer);
             }
 
         // populating the WaterMeters DbSet 
@@ -116,13 +112,13 @@ public class DbInit
                 var randBuilding = random.Next(buildings.Count);
                 var wm = new WaterMeter
                 {
-                    Id = Guid.NewGuid(),
                     MeterReading = random.Next(0, 99999) * 0.999m,
                     IsOnline = Bool,
                     BuildingId = buildings[randBuilding].Id
                 };
+                meters.Add(wm);
 
-                billings.Add(new Billing
+                var billing = new Billing
                     {
                         PriceRate = random.Next(1, 100), // this should be in dollars per gallon
                         TotalAmountDue = 0, //this should be in dollars, calculated by multiplying the PriceRate by the MeterReading field in the WaterMeter table
@@ -131,8 +127,8 @@ public class DbInit
                         IsPaid = false, //this should be determined through a conditional that determines whether the TimePaid is after the DueDate
                         CustomerId = c.Id,
                         WaterMeterId = wm.Id
-                    }
-                );
+                    };
+                billings.Add(billing);
             }
 
             foreach(var billing in billings) //loop to correctly assign true values to IsPaid if the TimePaid is before the DueDate

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj": {}
+    "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
+    "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\obj\\",
+        "projectPath": "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+        "outputPath": "D:\\git_repos\\WaterUtilitiesApp\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
