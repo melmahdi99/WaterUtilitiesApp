@@ -2,7 +2,7 @@ using System;
 
 namespace Application.Services;
 
-public static class WaterMeterLogic
+public static class WaterMeterLogic //Theses methods are already in WaterService.cs, if you delete them the xunit test wont work, but I tested the helper methods and they passed. I dont know if we need a unit test when we combine our code
 {
     private const decimal MaxMeterValue = 999_999.999m;
 
