@@ -62,6 +62,7 @@ namespace API.Controllers
                 user.Id,
                 user.FirstName,
                 user.LastName,
+                user.CustomerId,
                 user.Email
             });
         }
