@@ -12,8 +12,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260601155042_AddCustomerBillingFk")]
-    partial class AddCustomerBillingFk
+    [Migration("20260603194515_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,12 +41,14 @@ namespace Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("PriceRate")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("TimePaid")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("TotalAmountDue")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid>("WaterMeterId")
@@ -54,7 +56,14 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Billings");
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Billings", t =>
+                        {
+                            t.HasCheckConstraint("CK_Billings_PriceRate_NonNegative", "[PriceRate] >= 0");
+
+                            t.HasCheckConstraint("CK_Billings_TotalAmountDue_NonNegative", "[TotalAmountDue] >= 0");
+                        });
                 });
 
             modelBuilder.Entity("Domain.Building", b =>
@@ -68,36 +77,44 @@ namespace Persistence.Migrations
 
                     b.Property<string>("BuildingType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CityName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("KingdomName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(9, 6)
+                        .HasColumnType("decimal(9,6)");
 
                     b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(9, 6)
+                        .HasColumnType("decimal(9,6)");
 
                     b.Property<string>("ServiceArea")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("StreetName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("StreetNum")
                         .HasColumnType("int");
 
                     b.Property<string>("StreetSuffix")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<int>("WaterMeterId")
                         .HasColumnType("int");
@@ -107,7 +124,12 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Buildings");
+                    b.ToTable("Buildings", t =>
+                        {
+                            t.HasCheckConstraint("CK_Buildings_StreetNum_Positive", "[StreetNum] > 0");
+
+                            t.HasCheckConstraint("CK_Buildings_ZipCode_Range", "[ZipCode] >= 0 AND [ZipCode] <= 99999");
+                        });
                 });
 
             modelBuilder.Entity("Domain.Customer", b =>
@@ -116,20 +138,17 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BillingId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("FName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BillingId");
 
                     b.ToTable("Customers");
                 });
@@ -147,11 +166,15 @@ namespace Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("MeterReading")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WaterMeters");
+                    b.ToTable("WaterMeters", t =>
+                        {
+                            t.HasCheckConstraint("CK_WaterMeters_MeterReading_NonNegative", "[MeterReading] >= 0");
+                        });
                 });
 
             modelBuilder.Entity("Domain.WaterTreatmentPlant", b =>
@@ -162,28 +185,38 @@ namespace Persistence.Migrations
 
                     b.Property<string>("ServiceArea")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Turbidity")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(8, 3)
+                        .HasColumnType("decimal(8,3)");
 
                     b.Property<int>("WaterVolumeCapacity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WaterTreatmentPlants");
+                    b.ToTable("WaterTreatmentPlants", t =>
+                        {
+                            t.HasCheckConstraint("CK_WaterTreatmentPlants_Turbidity_NonNegative", "[Turbidity] >= 0");
+
+                            t.HasCheckConstraint("CK_WaterTreatmentPlants_WaterVolumeCapacity_Positive", "[WaterVolumeCapacity] > 0");
+                        });
+                });
+
+            modelBuilder.Entity("Domain.Billing", b =>
+                {
+                    b.HasOne("Domain.Customer", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Customer", b =>
                 {
-                    b.HasOne("Domain.Billing", "Billing")
-                        .WithMany()
-                        .HasForeignKey("BillingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Billing");
+                    b.Navigation("Bills");
                 });
 #pragma warning restore 612, 618
         }

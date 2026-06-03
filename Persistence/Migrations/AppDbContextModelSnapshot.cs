@@ -53,6 +53,8 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
                     b.ToTable("Billings", t =>
                         {
                             t.HasCheckConstraint("CK_Billings_PriceRate_NonNegative", "[PriceRate] >= 0");
@@ -133,9 +135,6 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BillingId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("FName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -147,8 +146,6 @@ namespace Persistence.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BillingId");
 
                     b.ToTable("Customers");
                 });
@@ -205,15 +202,18 @@ namespace Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Domain.Customer", b =>
+            modelBuilder.Entity("Domain.Billing", b =>
                 {
-                    b.HasOne("Domain.Billing", "Billing")
-                        .WithMany()
-                        .HasForeignKey("BillingId")
+                    b.HasOne("Domain.Customer", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.Navigation("Billing");
+            modelBuilder.Entity("Domain.Customer", b =>
+                {
+                    b.Navigation("Bills");
                 });
 #pragma warning restore 612, 618
         }
