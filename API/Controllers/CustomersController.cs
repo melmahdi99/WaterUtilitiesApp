@@ -67,32 +67,32 @@ public class CustomersController(AppDbContext context) : ControllerBase
         return CreatedAtAction(nameof(GetCustomer), new { id = customer.Id }, createdCustomer);
     }
 
-    [HttpPut("{id:guid}")]
-    public async Task<IActionResult> UpdateCustomer(Guid id, UpdateCustomerDto customerDto)
-    {
-        var customer = await context.Customers.FindAsync(id);
+    // [HttpPut("{id:guid}")]
+    // public async Task<IActionResult> UpdateCustomer(Guid id, UpdateCustomerDto customerDto)
+    // {
+    //     var customer = await context.Customers.FindAsync(id);
 
-        if (customer is null)
-        {
-            return NotFound();
-        }
+    //     if (customer is null)
+    //     {
+    //         return NotFound();
+    //     }
 
-        var billingExists = await context.Billings
-            .AnyAsync(billing => billing.Id == customerDto.Bills);
+    //     var billingExists = await context.Billings
+    //         .AnyAsync(billing => billing.Id == customerDto.Bills);
 
-        if (!billingExists)
-        {
-            return BadRequest($"Billing with id '{customerDto.Bills}' was not found.");
-        }
+    //     if (!billingExists)
+    //     {
+    //         return BadRequest($"Billing with id '{customerDto.Bills}' was not found.");
+    //     }
 
-        customer.FirstName = customerDto.FName;
-        customer.LastName = customerDto.LName;
-        customer.Bills = customerDto.Bills;
+    //     customer.FirstName = customerDto.FName;
+    //     customer.LastName = customerDto.LName;
+    //     customer.Bills = customerDto.Bills;
 
-        await context.SaveChangesAsync();
+    //     await context.SaveChangesAsync();
 
-        return NoContent();
-    }
+    //     return NoContent();
+    // }
 
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteCustomer(Guid id)

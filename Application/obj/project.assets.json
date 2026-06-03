@@ -1738,19 +1738,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\santi\\.nuget\\packages\\": {}
+    "C:\\Users\\Owner\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\git_repos\\WaterUtilitiesApp\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Application\\obj\\",
+      "projectPath": "D:\\git_repos\\WaterUtilitiesApp\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+      "outputPath": "D:\\git_repos\\WaterUtilitiesApp\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -1762,11 +1762,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj"
+            "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\git_repos\\WaterUtilitiesApp\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj"
+            "D:\\git_repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj": {
+              "projectPath": "D:\\git_repos\\WaterUtilitiesApp\\Persistence\\Persistence.csproj"
             }
           }
         }
