@@ -9,11 +9,11 @@ namespace Application;
 
 public class WaterMeterService : IWaterMeterService
 {
-    private readonly WaterMeterDbContext _context;
+    private readonly AppDbContext _context;
     private readonly IMapper _mapper;
 
 
-    public WaterMeterService(WaterMeterDbContext context, IMapper mapper)
+    public WaterMeterService(AppDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
@@ -42,7 +42,7 @@ public class WaterMeterService : IWaterMeterService
 
 
 
-    public async Task<WaterMeterResponseDTO> CreateAsync(CreateWaterMeterDTO dto)
+    public async Task<WaterMeterResponseDTO> Create(CreateWaterMeterDTO dto)
     {
          if(dto.MeterReading < 0)
         {
@@ -93,28 +93,28 @@ public class WaterMeterService : IWaterMeterService
     }
 
 
-    public async Task<WaterMeterResponseDTO> UpdatReadingAsync(Guid id, UpdateMeterReadingDTO dto)
-    {
-        var meter = await _context.WaterMeters.FindAsync(id);
-        if(meter == null)
-        {
-            throw new KeyNotFoundException($"Water meter {id} not found");
-        }
+    // public async Task<WaterMeterResponseDTO> UpdatReadingAsync(Guid id, UpdateMeterReadingDTO dto)
+    // {
+    //     var meter = await _context.WaterMeters.FindAsync(id);
+    //     if(meter == null)
+    //     {
+    //         throw new KeyNotFoundException($"Water meter {id} not found");
+    //     }
 
 
-        if(dto.NewReading < 0)
-        {
-            throw new ArgumentException($"Water meter reading cannot be negative");
-        }
+    //     if(dto.NewReading < 0)
+    //     {
+    //         throw new ArgumentException($"Water meter reading cannot be negative");
+    //     }
 
 
-        meter.MeterReading = dto.NewReading;
-        await _context.SaveChangesAsync();
+    //     meter.MeterReading = dto.NewReading;
+    //     await _context.SaveChangesAsync();
 
 
-        return _mapper.Map<WaterMeterResponseDTO>(meter);
+    //     return _mapper.Map<WaterMeterResponseDTO>(meter);
 
-    }
+    // }
 
 
 

@@ -5,12 +5,12 @@ using Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddDbContext<WaterMeterDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
-
+builder.Services.AddScoped<IWaterMeterRepo, WaterMeterRepo>();
 builder.Services.AddScoped<IWaterMeterService, WaterMeterService>();
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

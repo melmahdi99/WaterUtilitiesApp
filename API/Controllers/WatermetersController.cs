@@ -19,7 +19,7 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<WaterMeterResponseDTO>>> GetAll()
+        public async Task<ActionResult<List<WaterMeterResponseDTO>>> GetAllAsync()
         {
             var meters = await _service.GetAllAsync();
             return Ok(meters);
@@ -27,7 +27,7 @@ namespace API.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<WaterMeterResponseDTO>> GetById(Guid id)
+        public async Task<ActionResult<WaterMeterResponseDTO>> GetByIdAsync(Guid id)
         {
             try
             {
@@ -46,16 +46,16 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<WaterMeterResponseDTO>> Create(CreateWaterMeterDTO dto)
         {
-            var created = await _service.CreateAsync(dto);
+            var created = await _service.Create(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = created.Id}, created);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = created.Id}, created);
         }
 
 
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<WaterMeterResponseDTO>> Update(Guid id, UpdateWaterMeterDTO dto)
+        public async Task<ActionResult<WaterMeterResponseDTO>> UpdateAsync(Guid id, UpdateWaterMeterDTO dto)
         {
             try
             {
@@ -72,25 +72,25 @@ namespace API.Controllers
 
 
 
-        [HttpPut("{id}/reading")]
-        public async Task<ActionResult<WaterMeterResponseDTO>> UpdatedReading(Guid id, UpdateMeterReadingDTO dto)
-        {
-            try
-            {
-                var Updated = await _service.UpdatReadingAsync(id, dto);
-                return Ok(Updated);
-            }
-            catch (KeyNotFoundException e)
-            {
+        // [HttpPut("{id}/reading")]
+        // public async Task<ActionResult<WaterMeterResponseDTO>> UpdatedReading(Guid id, UpdateMeterReadingDTO dto)
+        // {
+        //     try
+        //     {
+        //         var Updated = await _service.UpdatReadingAsync(id, dto);
+        //         return Ok(Updated);
+        //     }
+        //     catch (KeyNotFoundException e)
+        //     {
                 
-                return NotFound(e.Message);
-            }
-        }
+        //         return NotFound(e.Message);
+        //     }
+        //}
 
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete (Guid id)
+        public async Task<IActionResult> DeleteAsync (Guid id)
         {
             try
             {
