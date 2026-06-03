@@ -19,7 +19,7 @@ public class Building
     public string ServiceArea { get; set; }
 
     //FKs
-    public Guid AddressId { get; set; }
+    //public Guid AddressId { get; set; }
 
     //I think this is a foreign key?
     public int WaterMeterId { get; set; }
