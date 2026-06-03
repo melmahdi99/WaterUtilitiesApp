@@ -11,4 +11,5 @@ public class Customer
     [ForeignKey(nameof(Billing))]
     public Guid BillingId { get; set; }
     public Billing? Billing { get; set; }
+    public List<Billing> Bills {get; set;} = new List<Billing>();
 }
