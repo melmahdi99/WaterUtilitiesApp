@@ -105,6 +105,7 @@ public class DbInit
         // populating the WaterMeters DbSet 
         // creates 1 WaterMeter per Customer, but does not attach the WaterMeter to the Customer
         var meters = new List<WaterMeter>();
+        var billings = new List<Billing>();
             foreach (var c in customers) {
                 var b = random.Next(0, 1);
                 var Bool = false;
@@ -113,20 +114,14 @@ public class DbInit
                     Bool = true;
                 }
                 var randBuilding = random.Next(buildings.Count);
-                new WaterMeter
+                var wm = new WaterMeter
                 {
                     Id = Guid.NewGuid(),
                     MeterReading = random.Next(0, 99999) * 0.999m,
                     IsOnline = Bool,
                     BuildingId = buildings[randBuilding].Id
                 };
-            }
 
-        var billings = new List<Billing>();
-        var metersCopy = meters;
-            foreach (var c in customers)
-            {
-                var i = random.Next(metersCopy.Count);
                 billings.Add(new Billing
                     {
                         PriceRate = random.Next(1, 100), // this should be in dollars per gallon
@@ -135,13 +130,10 @@ public class DbInit
                         TimePaid = DateTime.Now.AddDays(random.Next(-10,30)), //adds a random time 
                         IsPaid = false, //this should be determined through a conditional that determines whether the TimePaid is after the DueDate
                         CustomerId = c.Id,
-                        WaterMeterId = metersCopy[i].Id
+                        WaterMeterId = wm.Id
                     }
                 );
-                metersCopy.Remove(metersCopy[i]);
-
             }
-
 
             foreach(var billing in billings) //loop to correctly assign true values to IsPaid if the TimePaid is before the DueDate
             {
