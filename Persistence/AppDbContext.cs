@@ -24,12 +24,10 @@ public class AppDbContext (DbContextOptions options) : DbContext(options)
                 .HasMaxLength(100)
                 .IsRequired();
 
-            entity.HasOne(customer => customer.Billing)
-                .WithMany()
-                .HasForeignKey(customer => customer.BillingId)
+            entity.HasMany(customer => customer.Bills)
+                .WithOne()
+                .HasForeignKey(billing => billing.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            entity.Ignore(customer => customer.Bills);
         });
 
         modelBuilder.Entity<Billing>(entity =>

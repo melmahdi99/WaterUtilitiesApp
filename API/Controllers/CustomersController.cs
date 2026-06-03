@@ -17,8 +17,7 @@ public class CustomersController(AppDbContext context) : BaseApiController
             {
                 Id = customer.Id,
                 FName = customer.FName,
-                LName = customer.LName,
-                BillingId = customer.BillingId
+                LName = customer.LName
             })
             .ToListAsync();
 
@@ -35,8 +34,7 @@ public class CustomersController(AppDbContext context) : BaseApiController
             {
                 Id = customer.Id,
                 FName = customer.FName,
-                LName = customer.LName,
-                BillingId = customer.BillingId
+                LName = customer.LName
             })
             .SingleOrDefaultAsync();
 
@@ -46,19 +44,11 @@ public class CustomersController(AppDbContext context) : BaseApiController
     [HttpPost]
     public async Task<ActionResult<CustomerDto>> CreateCustomer(CreateCustomerDto customerDto)
     {
-        var billingExists = await context.Billings.AnyAsync(billing => billing.Id == customerDto.BillingId);
-
-        if (!billingExists)
-        {
-            return BadRequest($"Billing with id '{customerDto.BillingId}' was not found.");
-        }
-
         var customer = new Customer
         {
             Id = Guid.NewGuid(),
             FName = customerDto.FName,
-            LName = customerDto.LName,
-            BillingId = customerDto.BillingId
+            LName = customerDto.LName
         };
 
         context.Customers.Add(customer);
@@ -79,16 +69,8 @@ public class CustomersController(AppDbContext context) : BaseApiController
             return NotFound();
         }
 
-        var billingExists = await context.Billings.AnyAsync(billing => billing.Id == customerDto.BillingId);
-
-        if (!billingExists)
-        {
-            return BadRequest($"Billing with id '{customerDto.BillingId}' was not found.");
-        }
-
         customer.FName = customerDto.FName;
         customer.LName = customerDto.LName;
-        customer.BillingId = customerDto.BillingId;
 
         await context.SaveChangesAsync();
 
@@ -117,8 +99,7 @@ public class CustomersController(AppDbContext context) : BaseApiController
         {
             Id = customer.Id,
             FName = customer.FName,
-            LName = customer.LName,
-            BillingId = customer.BillingId
+            LName = customer.LName
         };
     }
 }
