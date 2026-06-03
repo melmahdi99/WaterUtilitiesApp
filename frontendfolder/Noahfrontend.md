@@ -1,0 +1,1 @@
+This is to test that I'm able to contribute to the frontend branch and to describe my contribution to the frontend
