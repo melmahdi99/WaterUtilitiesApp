@@ -1,8 +1,8 @@
 using System;
+using Persistence.WaterTreatmentPlant;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
-namespace Persistence.WaterTreatmentPlant;
 
 public class WaterTreatmentPlantRepo : IWaterTreatmentPlantRepo
 {

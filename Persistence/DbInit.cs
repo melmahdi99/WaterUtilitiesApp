@@ -138,14 +138,11 @@ public class DbInit
                     billing.IsPaid = true;
                 };
             };
-        
-        var waterTreatmentPlants = new List<WaterTreatmentPlant>();
 
         context.Billings.AddRange(billings);
         context.Buildings.AddRange(buildings);
         context.WaterMeters.AddRange(meters);
         context.Customers.AddRange(customers);
-        context.WaterTreatmentPlants.AddRange(waterTreatmentPlants);
         await context.SaveChangesAsync();
     }
 }
