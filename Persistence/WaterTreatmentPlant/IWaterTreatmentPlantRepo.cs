@@ -1,6 +1,7 @@
 using System;
 using Domain;
 namespace Persistence;
+namespace Persistence.WaterTreatmentPlant;
 
 public interface IWaterTreatmentPlantRepo
 {

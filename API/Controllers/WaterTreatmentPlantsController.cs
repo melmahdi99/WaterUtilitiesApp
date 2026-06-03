@@ -24,7 +24,7 @@ namespace API.Controllers
             if(!waterTreatmentPlants.Any()) return NotFound();
             return Ok(waterTreatmentPlants);
         }
-
+        
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetWaterTreatmentPlantById(Guid id)
         {

@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using Domain;
 using Persistence;
+using Persistence.WaterTreatmentPlant;
 
 namespace Application.WaterTreatmentPlant;
 
