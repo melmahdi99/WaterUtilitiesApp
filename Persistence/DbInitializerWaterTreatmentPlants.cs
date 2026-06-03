@@ -1,12 +1,44 @@
 using System;
 using Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace Persistence;
 
 public class DbInitializerWaterTreatmentPlant
 {
-    public static async Task SeedData(AppDbContext context)
+    public static async Task SeedData(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
     {
+        var roles = new List<string>{"Admin", "User"};
+        foreach(var role in roles)
+        {
+            if(!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
+        if (!userManager.Users.Any())
+        {
+            var users = new List<User>
+            {
+                new User{FirstName = "John", LastName = "Doe", UserName = "jdoe@test.com", Email= "jdoe@test.com"},
+                new User{FirstName = "Tom", LastName = "Felton", UserName = "tom@test.com", Email= "tom@test.com"},
+                new User{FirstName = "Jane", LastName = "Doe", UserName = "jane@test.com", Email= "jane@test.com"}
+            };
+
+            foreach(var user in users)
+            {
+                await userManager.CreateAsync(user, "Pa$$w0rd");
+                if(!(user.UserName == "jdoe@test.com"))
+                {
+                    await userManager.AddToRoleAsync(user, "User");
+                } else 
+                {
+                    await userManager.AddToRoleAsync(user, "Admin");
+                }
+            }
+        }
+
         if (context.WaterTreatmentPlants.Any()) 
             return;
 
