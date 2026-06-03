@@ -7,16 +7,16 @@ public class Building
     public Guid Id { get; set; }
     public required string BuildingType { get; set; }
     public int StreetNum { get; set; }
-    public string StreetName { get; set; }
-    public string StreetSuffix { get; set; }
+    public required string StreetName { get; set; }
+    public required string StreetSuffix { get; set; }
     public int ZipCode { get; set; }
-    public string CityName { get; set; }
-    public string KingdomName { get; set; }
+    public required string CityName { get; set; }
+    public required string KingdomName { get; set; }
     public decimal Latitude { get; set; }
     public decimal Longitude { get; set; }
 
     //unsure of the plan for this one
-    public string ServiceArea { get; set; }
+    public required string ServiceArea { get; set; }
 
     //FKs
     public Guid AddressId { get; set; }
