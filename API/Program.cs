@@ -25,6 +25,13 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddScoped<IBillingService, BillingService_Impl>();
+builder.Services.AddScoped<IBillingRepo, BillingRepo_Impl>();
+builder.Services.AddScoped<IBuildingRepo, BuildingRepo>();
+builder.Services.AddScoped<IBuildingService, BuildingService>();
+// customer
+builder.Services.AddScoped<IWaterMeterRepo, WaterMeterRepo>();
+builder.Services.AddScoped<IWaterMeterService, WaterMeterService>();
 builder.Services.AddScoped<IWaterTreatmentPlantService, WaterTreatmentPlantService>();
 builder.Services.AddScoped<IWaterTreatmentPlantRepo, WaterTreatmentPlantRepo>();
 
@@ -52,6 +59,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddMemoryCache();
+builder.Services.AddResponseCaching();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,6 +71,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseResponseCaching();
+
+app.UseCors("AllowFrontend");
 
 if (!app.Environment.IsDevelopment())
 {
@@ -88,6 +102,21 @@ try
 catch(Exception e)
 {
     logger.LogError(e, "An error occurred during migration");
+}
+
+
+using var scope = app.Services.CreateScope();
+var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+try
+{
+    await context.Database.MigrateAsync();
+    await DbInit.SeedData(context);
+}
+catch (Exception e)
+{
+    logger.LogError(e, "An error has occurred during migration.");
 }
 
 app.Run();

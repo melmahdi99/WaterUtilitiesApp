@@ -1,0 +1,7 @@
+namespace Application.Customer;
+
+public class CreateCustomerDto
+{
+    public required string FName { get; set; }
+    public required string LName { get; set; }
+}

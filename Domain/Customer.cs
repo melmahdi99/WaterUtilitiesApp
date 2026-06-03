@@ -1,13 +1,16 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain;
 
 public class Customer
 {
-    public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+    [Column(TypeName="nvarchar(55)")]
     public required string FirstName { get; set; }
+    [Column(TypeName="nvarchar(55)")]
     public required string LastName { get; set; }
-
-    //Not sure if we're keeping the water company table after what Ethan said
-    // public Guid WaterCompanyId { get; set; }
+    public List<Billing> Bills { get; set; }
 }
