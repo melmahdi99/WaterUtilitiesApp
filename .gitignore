@@ -1,3 +1,10 @@
+API/bin
+Application/obj
+Application/bin
+Persistence/bin
+Persistence/obj
+API/obj
+
 # Exclude NuGet package build artifacts
 *.nupkg
 *.snupkg
@@ -15,3 +22,6 @@ Application/bin
 Persistence/bin
 Persistence/obj
 API/obj
+
+[Bb]in/
+[Oo]bj/
