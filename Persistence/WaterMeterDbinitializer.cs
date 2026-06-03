@@ -17,7 +17,9 @@ public class WaterMeterDbinitializer
                 Id = Guid.Parse("30000000-0000-0000-0000-000000000001"),
                 MeterReading = 1250.750m,
                 IsOnline = true,
-                BuildingId = buildingIdMain
+                BuildingId = buildingIdMain,
+                PreviousReading = 1200.000m, // Simulate prior reading
+                LastReadingReceivedAt = DateTimeOffset.UtcNow.AddHours(-12)
             },
 
             new WaterMeter
@@ -25,7 +27,9 @@ public class WaterMeterDbinitializer
                 Id = Guid.Parse("30000000-0000-0000-0000-000000000002"),
                 MeterReading = 890.000m,
                 IsOnline = false,
-                BuildingId = buildingIdIndustrial
+                BuildingId = buildingIdIndustrial,
+                PreviousReading = 1200.000m, // Simulate prior reading
+                LastReadingReceivedAt = DateTimeOffset.UtcNow.AddHours(-12)
             },
 
             new WaterMeter
@@ -33,7 +37,9 @@ public class WaterMeterDbinitializer
                 Id = Guid.Parse("30000000-0000-0000-0000-000000000003"),
                 MeterReading = 5420.333m,
                 IsOnline = true,
-                BuildingId = buildingIdMain
+                BuildingId = buildingIdMain,
+                PreviousReading = 1200.000m, // Simulate prior reading
+                LastReadingReceivedAt = DateTimeOffset.UtcNow.AddHours(-12)
             }
         };
 

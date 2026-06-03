@@ -13,3 +13,10 @@ public class AppDbContext (DbContextOptions options) : DbContext(options)
     public required DbSet<WaterTreatmentPlant> WaterTreatmentPlants { get; set; }
        
 }
+
+// entity.Property(e => e.PreviousReading)
+//       .HasColumnType("decimal(10,3)")
+//       .IsRequired(false); 
+
+// entity.Property(e => e.LastReadingReceivedAt)
+//       .IsRequired(false);

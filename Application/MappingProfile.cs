@@ -20,6 +20,8 @@ public class MappingProfile : Profile
                     sourceObject => sourceObject.NewReading
                 )
             );
+
+        CreateMap<WaterMeter, WaterMeterResponseDTO>();
     }
 }
 

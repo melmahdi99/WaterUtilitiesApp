@@ -138,7 +138,13 @@ namespace Persistence.Migrations
                     b.Property<bool>("IsOnline")
                         .HasColumnType("bit");
 
+                    b.Property<DateTimeOffset?>("LastReadingReceivedAt")
+                        .HasColumnType("datetimeoffset");
+
                     b.Property<decimal>("MeterReading")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("PreviousReading")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

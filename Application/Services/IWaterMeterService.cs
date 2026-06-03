@@ -9,7 +9,11 @@ public interface IWaterMeterService
     Task<List<WaterMeterResponseDTO>> GetAllAsync();
     Task<WaterMeterResponseDTO> Create(CreateWaterMeterDTO dto);
     Task<WaterMeterResponseDTO> UpdateAsync(Guid id, UpdateWaterMeterDTO dto);
-    // Task<WaterMeterResponseDTO> UpdatReadingAsync(Guid id, UpdateMeterReadingDTO dto);
+    
     Task DeleteAsync(Guid id);
+    //business logic
+    Task<WaterMeterUsageDTO> GetUsageAsync(Guid id);
+    Task<MeterHealthReportDTO> GetHealthReportAsync(Guid id);
+    Task<WaterMeterResponseDTO> SubmitReadingAsync(Guid id, UpdateMeterReadingDTO dto);
 
 }
