@@ -521,9 +521,6 @@
             "projectReferences": {
               "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\santi\\git_repos\\Revature_project2\\WaterUtilitiesApp\\Persistence\\Persistence.csproj"
               }
             }
           }

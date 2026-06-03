@@ -1,4 +1,5 @@
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Persistence.deps.json
+C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Persistence.runtimeconfig.json
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Persistence.dll
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Persistence.pdb
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Domain.dll
@@ -13,6 +14,5 @@ C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Deb
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\Persistence.dll
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\refint\Persistence.dll
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\Persistence.pdb
-C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\ref\Persistence.dll
-C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\bin\Debug\net10.0\Persistence.runtimeconfig.json
 C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\Persistence.genruntimeconfig.cache
+C:\Users\santi\git_repos\Revature_project2\WaterUtilitiesApp\Persistence\obj\Debug\net10.0\ref\Persistence.dll
