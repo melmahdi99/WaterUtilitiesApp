@@ -97,26 +97,12 @@ var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 try
 {
     await context.Database.MigrateAsync();
+    await DbInit.SeedData(context);
     await DbInitializerWaterTreatmentPlant.SeedData(context, userManager, roleManager);
 }
 catch(Exception e)
 {
     logger.LogError(e, "An error occurred during migration");
-}
-
-
-using var scope = app.Services.CreateScope();
-var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-
-try
-{
-    await context.Database.MigrateAsync();
-    await DbInit.SeedData(context);
-}
-catch (Exception e)
-{
-    logger.LogError(e, "An error has occurred during migration.");
 }
 
 app.Run();
