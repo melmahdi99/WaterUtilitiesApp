@@ -9,5 +9,4 @@ public class GetBuildingDto
     public required string StreetSuffix { get; set; }
     public int ZipCode { get; set; }
     public required string KingdomName { get; set; }
-    public int WaterMeterId { get; set; }
 }
