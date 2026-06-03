@@ -8,8 +8,6 @@ public class WaterTreatmentPlant
     [Key]
     public Guid Id { get; set; }
     public int WaterVolumeCapacity { get; set; }
-    [Column(TypeName="nvarchar(max)")]
-    public required string ServiceArea { get; set; }
     [Column(TypeName ="decimal(7,2)")]
     public decimal Turbidity { get; set; }
     public int StreetNum { get; set; }

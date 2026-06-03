@@ -15,6 +15,7 @@ public class Building
     public required string StreetName { get; set; }
     [Column(TypeName="nvarchar(55)")]
     public string? StreetSuffix { get; set; }
+    [Range(10000, 99999)]
     public int ZipCode { get; set; }
     [Column(TypeName="nvarchar(55)")]
     public required string KingdomName { get; set; }
