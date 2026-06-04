@@ -8,10 +8,8 @@ public class DbInitializerBilling
     public static async Task SeedData(AppDbContext context)
     {
         if (context.Billings.Any()) return;
-
         var random = new Random();
         var billings = new List<Billing>();
-
         for (int i = 0; i < 20; i++)
         {
             var billing = new Billing
@@ -24,11 +22,8 @@ public class DbInitializerBilling
                 CustomerId = Guid.NewGuid(), //this should be a reference to the Customer entity in the final version of the app
                 WaterMeterId = Guid.NewGuid() //this should be a reference to the water meter entity in the final version of the app
             };
-
             billings.Add(billing);
         }
-
-
         foreach(var billing in billings) //loop to correctly assign true values to IsPaid if the TimePaid is before the DueDate
         {
             if (billing.TimePaid < billing.DueDate.ToDateTime(new TimeOnly(23, 59, 59))) //to compare the 2 variables I converted the DueDate to DateTime from DateOnly assuming the time due is 11:59 PM
@@ -36,10 +31,7 @@ public class DbInitializerBilling
                 billing.IsPaid = true;
             };
         }
-
         context.Billings.AddRange(billings);
         await context.SaveChangesAsync();
-
     }
-
 }
