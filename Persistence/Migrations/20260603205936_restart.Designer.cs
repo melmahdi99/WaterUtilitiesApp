@@ -12,8 +12,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260603172319_AddedIdentitySkeleton")]
-    partial class AddedIdentitySkeleton
+    [Migration("20260603205936_restart")]
+    partial class restart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,25 +34,27 @@ namespace Persistence.Migrations
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DueDate")
+                        .HasColumnType("date");
 
                     b.Property<bool>("IsPaid")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("PriceRate")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<DateTime>("TimePaid")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("TotalAmountDue")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<Guid>("WaterMeterId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Billings");
                 });
@@ -65,39 +67,27 @@ namespace Persistence.Migrations
 
                     b.Property<string>("BuildingType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CityName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("KingdomName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,5)");
 
                     b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ServiceArea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("decimal(10,5)");
 
                     b.Property<string>("StreetName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<int>("StreetNum")
                         .HasColumnType("int");
 
                     b.Property<string>("StreetSuffix")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WaterMeterId")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
@@ -115,11 +105,11 @@ namespace Persistence.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.HasKey("Id");
 
@@ -213,7 +203,7 @@ namespace Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("MeterReading")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(7, 2)");
 
                     b.HasKey("Id");
 
@@ -228,7 +218,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("KingdomName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<decimal>("Latitude")
                         .HasColumnType("decimal(10,5)");
@@ -238,14 +228,14 @@ namespace Persistence.Migrations
 
                     b.Property<string>("StreetName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<int>("StreetNum")
                         .HasColumnType("int");
 
                     b.Property<string>("StreetSuffix")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<decimal>("Turbidity")
                         .HasColumnType("decimal(7,2)");
@@ -394,6 +384,15 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Billing", b =>
+                {
+                    b.HasOne("Domain.Customer", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -443,6 +442,11 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Customer", b =>
+                {
+                    b.Navigation("Bills");
                 });
 #pragma warning restore 612, 618
         }
