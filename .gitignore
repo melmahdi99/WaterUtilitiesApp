@@ -26,7 +26,7 @@ API/obj
 [Bb]in/
 [Oo]bj/
 
-water-utilities-app/node_modules/
+node_modules/
 
 # Logs
 logs
