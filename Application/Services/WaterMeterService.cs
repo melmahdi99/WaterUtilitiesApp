@@ -182,7 +182,7 @@ public class WaterMeterService : IWaterMeterService
         }
 
         //48 hour threshold
-        var isStale = IsReadingStale(meter.LastReadingReceivedAt, TimeSpan.FromHours(48));
+        var isStale = IsReadingStale(meter.LastReadingReceivedAt, TimeSpan.FromHours(StaleReadingThresholdHours));
 
 
         var status = "Healthy";
@@ -298,13 +298,11 @@ public class WaterMeterService : IWaterMeterService
 
     public static (bool IsLeak, string? Message) DetectPotentialLeak(decimal flowRateLitersPerHour, bool buildingOccupied = true)
     {
-        //suspicous water usage if building is unoccupied 
-        const decimal VacantBuildingThreshold = 50m; 
+        
 
-        //suspicouse water usage if builing is occupied 
-        const decimal OccupiedBuildingThreshold = 500m;
+        var threshold = buildingOccupied ? LeakThresholdOccupied : LeakThresholdVacant;
 
-        var threshold = buildingOccupied ? OccupiedBuildingThreshold : VacantBuildingThreshold;
+        
 
         if (flowRateLitersPerHour > threshold * 2) // possible leak
         {
