@@ -1,8 +1,9 @@
 import React from 'react';
-import { loginCreds } from '../../types';
+import type { LoginCreds } from '../../types';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
 import { LockOpen } from '@mui/icons-material';
 import { useLocation, useNavigate} from 'react-router'
+import { useAccount } from './useAccount';
 
 function LoginForm() {
     const {loginUser} = useAccount();
