@@ -20,6 +20,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
                 Id = customer.Id,
                 FName = customer.FirstName,
                 LName = customer.LastName,
+                Email = customer.Email,
                 Bills = customer.Bills
             })
             .ToListAsync();
@@ -39,6 +40,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
                 Id = customer.Id,
                 FName = customer.FirstName,
                 LName = customer.LastName,
+                Email = customer.Email,
                 Bills = customer.Bills
             })
             .SingleOrDefaultAsync();
@@ -60,6 +62,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
         {
             FirstName = customerDto.FName,
             LastName = customerDto.LName,
+            Email = customerDto.Email
         };
 
         context.Customers.Add(customer);
@@ -122,6 +125,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
             Id = customer.Id,
             FName = customer.FirstName,
             LName = customer.LastName,
+            Email = customer.Email,
             Bills = customer.Bills
         };
     }
