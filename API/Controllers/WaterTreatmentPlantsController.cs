@@ -57,12 +57,12 @@ namespace API.Controllers
         }
 
         [Authorize(Roles ="Admin")]
-        [HttpPut]
-        public async Task<IActionResult> UpdateWaterTreatmentPlant(ReadWaterTreatmentPlantDto dto)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateWaterTreatmentPlant(Guid id, ReadWaterTreatmentPlantDto dto)
         {
-            _logger.LogInformation("Request to PUT Water Treatment Plant with ID: {id}", dto.Id);
+            _logger.LogInformation("Request to PUT Water Treatment Plant with ID: {id}",id);
             await _service.UpdateWaterTreatmentPlant(dto);
-            _logger.LogInformation("Updated Water Treatment Plant with ID: {id}", dto.Id);
+            _logger.LogInformation("Updated Water Treatment Plant with ID: {id}",id);
             return NoContent();
         }
 
