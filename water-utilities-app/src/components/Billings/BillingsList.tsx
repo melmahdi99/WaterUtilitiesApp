@@ -5,19 +5,20 @@ import { useBillings } from './useBillings';
 
 function BillingsList() {
     
-    const {billings} = useBillings();
+    const {billings, isPending} = useBillings();
 
-    if(!billings) return <Typography>Billings loading...</Typography>
+    // if(!billings) return <Typography>Billings loading...</Typography>
+    if(isPending) return <Typography>Billings loading...</Typography>
 
     return (
         <>
-        <Grid container spacing={2}>
+        {billings && <Grid container spacing={2}>
             {billings.map(a => {
                 return ( 
                 <BillingCard key={a.id} billing={a} />
                 )
             })}
-        </Grid>
+        </Grid>}
         </>
     )
 }

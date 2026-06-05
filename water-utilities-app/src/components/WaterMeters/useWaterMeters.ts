@@ -1,9 +1,11 @@
 import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 import type { WaterMeter } from "../../types/waterMeter";
 import agent from "../Global/agent";
+import { useLocation } from "react-router";
 
 export const useWaterMeters = (id?: string) => {
     const queryClient = useQueryClient();
+    const location = useLocation();
 
     const { data: waterMeters, isPending } = useQuery({
         queryKey: ['waterMeters'],
@@ -11,13 +13,13 @@ export const useWaterMeters = (id?: string) => {
             const response = await agent.get<WaterMeter[]>('/watermeters');
             return response.data;
         },
-        enabled: !!id
+        enabled: !id && location.pathname === '/watermeters'
     });
 
     const { data: meter, isLoading: isLoadingMeter } = useQuery({
         queryKey: ['waterMeters', id],
         queryFn: async () => {
-            const response = await agent.get<WaterMeter>(`/watermeters/$(id)`);
+            const response = await agent.get<WaterMeter>(`/watermeters/${id}`);
             return response.data;
         },
         enabled: !!id
@@ -25,7 +27,7 @@ export const useWaterMeters = (id?: string) => {
 
     const updateMeter = useMutation({
         mutationFn: async (meter: WaterMeter) => {
-            await agent.put(`/watermeters/$(meter.id)`, meter);
+            await agent.put(`/watermeters/${meter.id}`, meter);
         },
         onSuccess: async () => {
             await queryClient.invalidateQueries({

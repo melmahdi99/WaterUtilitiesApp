@@ -97,7 +97,7 @@ namespace API.Controllers
             try
             {
                 await _service.DeleteAsync(id);
-                return NotFound();
+                return NoContent();
             }
             catch (KeyNotFoundException e)
             {

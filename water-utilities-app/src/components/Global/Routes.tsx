@@ -12,6 +12,10 @@ import WaterTreatmentPlantDetails from '../WaterTreatmentPlants/WaterTreatmentPl
 import UserInfo from "./UserInfo";
 import CustomerDashboard from "../Customers/CustomerDashboard";
 import CustomerDetails from "../Customers/CustomerDetails";
+import MetersList from "../WaterMeters/MeterList";
+import BillingDashboard from "../Billings/BillingDashboard";
+import BillingForm from "../Billings/BillingForm";
+import BillingDetails from "../Billings/BillingDetails";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +26,8 @@ export const router = createBrowserRouter([
                 {path: 'createWaterTreatmentPlant', element: <WaterTreatmentPlantsForm/>},
                 {path: 'waterTreatmentPlants/manage/:id', element: <WaterTreatmentPlantsForm/>},
                 {path: 'customers/manage/:id', element: <CustomerDetails/>},
-                
+                {path: 'billings/manage/:id', element: <BillingForm/>},
+                {path: 'billings/:id', element: <BillingDetails/>}
             ]},
             {path: 'accounts/user-info', element: <UserInfo/>},
             {path: '', element: <Welcome/>},
@@ -35,6 +40,8 @@ export const router = createBrowserRouter([
             {path: 'buildings/manage/:id', element: <BuildingForm/>},
             {path: 'customers', element: <CustomerDashboard/>},
             {path: 'customers/:id', element: <CustomerDetails/>},
+            {path: 'watermeters', element: <MetersList/>},
+            {path: 'billings', element: <BillingDashboard/>},
             
 
         ]

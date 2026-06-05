@@ -1,10 +1,10 @@
 export interface Billing {
     id: string,
-    priceRate: string,
-    totalAmountDue: string,
+    priceRate: number,
+    totalAmountDue: number,
     dueDate: string,
     timePaid: string,
-    isPaid: string,
+    isPaid: boolean,
     customerId: string,
     waterMeterId: string
 }

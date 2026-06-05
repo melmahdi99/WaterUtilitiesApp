@@ -1,8 +1,9 @@
-import { Button, Stack, TextField, Typography } from '@mui/material'
+import { Button, Checkbox, FormControlLabel, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
 import type { Billing } from '../../types/billing';
 import { useBillings } from './useBillings';
 import { NavLink, useNavigate, useParams } from 'react-router';
+import { CheckBox } from '@mui/icons-material';
 
 
 function BillingForm() {
@@ -44,9 +45,9 @@ if(isLoadingBilling) return <Typography>Loading billing...</Typography>
   return (
     <Stack
     component='form' 
-    onSubmit={handleSubmit}>
+    onSubmit={handleSubmit}
     direction ={'column'}
-    spacing={1}
+    spacing={1}>
 
         <Typography variant='h5'>{billing ? 'Edit Billing' : 'CreateBilling'} </Typography>
 
@@ -74,11 +75,11 @@ if(isLoadingBilling) return <Typography>Loading billing...</Typography>
         defaultValue={billing?.timePaid}
         />
 
-        <TextField
+        {/* <TextField
         label = "IsPaid"
         name="isPaid"
         defaultValue={billing?.isPaid}
-        />
+        /> */}
 
         <TextField
         label = "CustomerId"
@@ -90,6 +91,15 @@ if(isLoadingBilling) return <Typography>Loading billing...</Typography>
         label = "WaterMeterId"
         name="waterMeterId"
         defaultValue={billing?.waterMeterId}
+        />
+
+        <FormControlLabel control={
+            <Checkbox
+            name="isPaid"
+            defaultChecked={billing?.isPaid}
+            />
+        }
+        label="Paid?"
         />
 
         <Button type="submit" variant='contained'>

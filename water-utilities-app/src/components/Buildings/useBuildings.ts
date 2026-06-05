@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import agent from "../Global/agent";
 import type { Building, CreateBuildingDto } from '../../types/building';
+import { useLocation } from "react-router";
 
 
 
@@ -9,7 +10,7 @@ export const useBuildings = (id?: string) => {
 
 
     const queryClient = useQueryClient();
-
+    const location = useLocation();
 
     const { data: buildings, isPending } = useQuery({
         queryKey: ['buildings'],
@@ -17,7 +18,8 @@ export const useBuildings = (id?: string) => {
             const response = await agent.get<Building[]>('/buildings');
             return response.data;
         },
-        staleTime: 1000 * 60 * 5
+        // staleTime: 1000 * 60 * 5
+        enabled: !id && location.pathname === '/buildings'
     });
 
 

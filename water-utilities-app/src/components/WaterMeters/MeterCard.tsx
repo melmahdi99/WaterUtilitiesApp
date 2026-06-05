@@ -8,7 +8,7 @@ type Props = {
 }
 
 function MeterCard({ meter }: Props) {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { deleteMeter } = useWaterMeters();
 
     return (
@@ -31,7 +31,7 @@ function MeterCard({ meter }: Props) {
             </CardContent>
 
             <CardActions>
-                <Button onClick={() => navigate(`/watermeters/${meter.id}`)}>View</Button>
+                {/* <Button onClick={() => navigate(`/watermeters/${meter.id}`)}>View</Button> */}
                 <Button onClick={() => deleteMeter.mutateAsync(meter.id)} color='error'>Delete</Button>
             </CardActions>
         </Card>

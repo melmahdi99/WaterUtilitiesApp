@@ -1,11 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import agent from '../Global/agent';
 import type { WaterTreatmentPlant } from "../../types/watertreatmentplant";
+import { useLocation } from "react-router";
 
 export const useWaterTreatmentPlants = (id?: string) => {
 
     const queryClient = useQueryClient();
-
+    const location = useLocation();
+    
     const {data: waterTreatmentPlants, isPending} = useQuery({
         queryKey: ['waterTreatmentPlants'],
         queryFn: async () =>  {

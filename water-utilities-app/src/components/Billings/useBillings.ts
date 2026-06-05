@@ -1,18 +1,21 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { Billing } from "../../types/billing";
 import agent from "../Global/agent";
+import { useLocation } from "react-router";
 
 
 export const useBillings = (id?: string) => {
  
     const queryClient = useQueryClient();
+    const location = useLocation();
  
-    const { data: billings, isPending } = useQuery({
+    const { data: billings, isPending: billingsLoading } = useQuery({
     queryKey: ['billings'],
     queryFn: async () => {
       const response = await agent.get<Billing[]>('/billings');
       return response.data;
-    }
+    },
+    enabled: !id && location.pathname === '/billings'
   });
  
   const {data: billing, isLoading: isLoadingBilling} = useQuery({
@@ -60,7 +63,7 @@ export const useBillings = (id?: string) => {
  
   return {
     billings,
-    isPending,
+    billingsLoading,
     updateBilling,
     createBilling,
     deleteBilling,

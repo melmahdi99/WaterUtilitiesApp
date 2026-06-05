@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { useBillings } from './useBillings';
 import { NavLink, useNavigate, useParams } from 'react-router';
 
@@ -10,26 +10,24 @@ function BillingDetails() {
 
   return (
     <Card>
-        <CardMedia 
+        {/* <CardMedia 
         component = 'img'
-        src = {`/images/Test.png`} 
+      // src = {`/images/Test.png`} 
         />
-        {/*use ${billing.category} for dynamic image*/}
+        use ${billing.category} for dynamic image */}
 
         <CardContent>
-            <Typography variant='h4'>ID: {billing?.id}</Typography>
-            <Typography>{billing?.priceRate}</Typography>
-            <Typography>{billing?.totalAmountDue}</Typography>
-            <Typography>{billing?.dueDate}</Typography>
-            <Typography>{billing?.totalAmountDue}</Typography>
-            <Typography>{billing?.timePaid}</Typography>
-            <Typography>{billing?.isPaid}</Typography>
-            <Typography>{billing?.customerId}</Typography>
-            <Typography>{billing?.waterMeterId}</Typography>
+            <Typography variant='h4'>Billing ID: {billing?.id}</Typography>
+            <Typography>Price Rate: {billing?.priceRate}</Typography>
+            <Typography>Total Amount Due: {billing?.totalAmountDue}</Typography>
+            <Typography>Due Date: {billing?.dueDate}</Typography>
+            <Typography>Time Paid: {billing?.timePaid}</Typography>
+            <Typography>Is Paid: {billing?.isPaid}</Typography>
+            <Typography>Customer ID: {billing?.customerId}</Typography>
+            <Typography>Water Meter ID:{billing?.waterMeterId}</Typography>
 
             </CardContent>
             <CardActions>
-                <Button color="primary">Edit</Button>
                 <Button component={NavLink} to={`/billings/manage/${id}`} color = "primary">Edit</Button>
                 <Button onClick={() => navigate('/billings/')}>Cancel</Button>
             </CardActions>
