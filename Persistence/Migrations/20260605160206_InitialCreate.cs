@@ -42,7 +42,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    LName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    LName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,6 +111,12 @@ namespace Persistence.Migrations
                 name: "IX_Billings_CustomerId",
                 table: "Billings",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Email",
+                table: "Customers",
+                column: "Email",
+                unique: true);
         }
 
         /// <inheritdoc />

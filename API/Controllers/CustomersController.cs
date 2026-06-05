@@ -17,7 +17,8 @@ public class CustomersController(AppDbContext context) : BaseApiController
             {
                 Id = customer.Id,
                 FName = customer.FName,
-                LName = customer.LName
+                LName = customer.LName,
+                Email = customer.Email
             })
             .ToListAsync();
 
@@ -34,7 +35,8 @@ public class CustomersController(AppDbContext context) : BaseApiController
             {
                 Id = customer.Id,
                 FName = customer.FName,
-                LName = customer.LName
+                LName = customer.LName,
+                Email = customer.Email
             })
             .SingleOrDefaultAsync();
 
@@ -48,7 +50,8 @@ public class CustomersController(AppDbContext context) : BaseApiController
         {
             Id = Guid.NewGuid(),
             FName = customerDto.FName,
-            LName = customerDto.LName
+            LName = customerDto.LName,
+            Email = customerDto.Email
         };
 
         context.Customers.Add(customer);
@@ -71,6 +74,7 @@ public class CustomersController(AppDbContext context) : BaseApiController
 
         customer.FName = customerDto.FName;
         customer.LName = customerDto.LName;
+        customer.Email = customerDto.Email;
 
         await context.SaveChangesAsync();
 
@@ -99,7 +103,8 @@ public class CustomersController(AppDbContext context) : BaseApiController
         {
             Id = customer.Id,
             FName = customer.FName,
-            LName = customer.LName
+            LName = customer.LName,
+            Email = customer.Email
         };
     }
 }

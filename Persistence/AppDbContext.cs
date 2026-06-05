@@ -24,10 +24,17 @@ public class AppDbContext (DbContextOptions options) : DbContext(options)
                 .HasMaxLength(100)
                 .IsRequired();
 
+            entity.Property(customer => customer.Email)
+                .HasMaxLength(255)
+                .IsRequired();
+
             entity.HasMany(customer => customer.Bills)
                 .WithOne()
                 .HasForeignKey(billing => billing.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasIndex(customer => customer.Email)
+                .IsUnique();
         });
 
         modelBuilder.Entity<Billing>(entity =>
