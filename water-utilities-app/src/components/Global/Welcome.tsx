@@ -1,8 +1,8 @@
-import { useLocation, useNavigate} from 'react-router'
+// import { useLocation, useNavigate} from 'react-router'
 
 function Welcome() {
-    const navigate = useNavigate();
-    const location = useLocation();
+    // const navigate = useNavigate();
+    // const location = useLocation();
     return (
         <div>Welcome to Water Utilities & Billing App!</div>
     )

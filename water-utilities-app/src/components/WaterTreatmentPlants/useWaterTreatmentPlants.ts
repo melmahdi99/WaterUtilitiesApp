@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import agent from '../Global/agent';
-import type { WaterTreatmentPlant } from "../../types";
+import type { WaterTreatmentPlant } from "../../types/watertreatmentplant";
 
 export const useWaterTreatmentPlants = (id?: string) => {
 

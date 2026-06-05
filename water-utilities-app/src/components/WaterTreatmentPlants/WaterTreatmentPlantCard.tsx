@@ -1,5 +1,5 @@
 import React from 'react'
-import { WaterTreatmentPlant } from '../../types'
+import type { WaterTreatmentPlant } from '../../types/watertreatmentplant'; 
 import { Button, Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import { useWaterTreatmentPlants } from './useWaterTreatmentPlants';
 import { useNavigate } from 'react-router';
@@ -16,11 +16,11 @@ function WaterTreatmentPlantCard({waterTreatmentPlant} : Props) {
   return (
     <Card>
         <CardContent>
-            <Typography>{waterTreatmentPlant.title}</Typography>
             <Typography>{waterTreatmentPlant.id}</Typography>
+            <Typography>{waterTreatmentPlant.waterVolumeCapacity}</Typography>
         </CardContent>
         <CardActions>
-            <Chip label = {waterTreatmentPlant.category} variant='outlined'/>
+            {/* <Chip label = {waterTreatmentPlant.category} variant='outlined'/> */}
             <Button onClick={() => navigate(`/waterTreatmentPlants/${waterTreatmentPlant.id}`)}>View</Button>
             <Button onClick={() => deleteWaterTreatmentPlant.mutateAsync(waterTreatmentPlant.id)} color='error'>Delete</Button>
         </CardActions>
