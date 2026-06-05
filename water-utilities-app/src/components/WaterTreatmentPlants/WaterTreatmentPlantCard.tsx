@@ -1,6 +1,6 @@
 import React from 'react'
 import type { WaterTreatmentPlant } from '../../types/watertreatmentplant'; 
-import { Button, Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { useWaterTreatmentPlants } from './useWaterTreatmentPlants';
 import { useNavigate } from 'react-router';
 

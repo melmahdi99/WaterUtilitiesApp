@@ -6,6 +6,8 @@ import RequireAuth from "./RequireAuth";
 import BuildingDashboard from "../Buildings/BuildingDashboard";
 import BuildingDetails from "../Buildings/BuildingDetails";
 import BuildingForm from "../Buildings/BuildingForm";
+import WaterTreatmentPlantsList from "../WaterTreatmentPlants/WaterTreatmentPlantsList";
+import WaterTreatmentPlantsForm from "../WaterTreatmentPlants/WaterTreatmentPlantsForm"
 
 export const router = createBrowserRouter([
     {
@@ -13,9 +15,13 @@ export const router = createBrowserRouter([
         element: <App/>,
         children: [
             {element: <RequireAuth/>, children: [
+                {path: 'createWaterTreatmentPlant', element: <WaterTreatmentPlantsForm/>},
+                {path: 'activities/manage/:id', element: <WaterTreatmentPlantsForm/>},
             ]},
             {path: '', element: <Welcome/>},
             {path: 'login', element: <LoginForm/>},
+            {path: 'waterTreatmentPlants', element: <WaterTreatmentPlantsList/>},
+            //{path: 'waterTreatmentPlants/:id', element: <WaterTreatmentPlantDetails/>},
             {path: 'buildings', element: <BuildingDashboard/>},
             {path: 'buildings/:id', element: <BuildingDetails/>},
             {path: 'buildings/create', element: <BuildingForm/>},

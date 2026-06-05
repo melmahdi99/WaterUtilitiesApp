@@ -3,13 +3,13 @@ import WaterTreatmentPlantCard from "./WaterTreatmentPlantCard";
 import { useWaterTreatmentPlants } from "./useWaterTreatmentPlants";
 
 function WaterTreatmentPlantsList() {
-    const {wtpList} = useWaterTreatmentPlants();
-    if (!wtpList) return <Typography>Loading Water Treatment Plants...</Typography>
+    const {waterTreatmentPlants} = useWaterTreatmentPlants();
+    if (!waterTreatmentPlants) return <Typography>Loading Water Treatment Plants...</Typography>
 
     return(
         <>
         <Grid container spacing={2}>
-            {wtpList.map(a =>{
+            {waterTreatmentPlants.map(a =>{
                 return(
                     <WaterTreatmentPlantCard key = {a.id} waterTreatmentPlant ={a}/>
                 )

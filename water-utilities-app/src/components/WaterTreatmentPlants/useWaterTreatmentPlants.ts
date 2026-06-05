@@ -9,7 +9,7 @@ export const useWaterTreatmentPlants = (id?: string) => {
     const {data: waterTreatmentPlants, isPending} = useQuery({
         queryKey: ['waterTreatmentPlants'],
         queryFn: async () =>  {
-            const response = await agent.get<WaterTreatmentPlant[]>('/activities');
+            const response = await agent.get<WaterTreatmentPlant[]>('/waterTreatmentPlants');
             return response.data;
         }
 
