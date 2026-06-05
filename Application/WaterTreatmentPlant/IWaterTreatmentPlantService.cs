@@ -9,4 +9,6 @@ public interface IWaterTreatmentPlantService
     public Task<ReadWaterTreatmentPlantDto> CreateWaterTreatmentPlant(CreateWaterTreatmentPlantDto dto);
     public Task UpdateWaterTreatmentPlant(ReadWaterTreatmentPlantDto dto);
     public Task DeleteWaterTreatmentPlant(Guid id);
+    public Task<IEnumerable<GetBuildingDto>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius);
+
 }

@@ -9,4 +9,5 @@ public interface IWaterTreatmentPlantRepo
     public Task<Domain.WaterTreatmentPlant> CreateWaterTreatmentPlant(Domain.WaterTreatmentPlant waterTreatmentPlant);
     public Task<Domain.WaterTreatmentPlant> UpdateWaterTreatmentPlant(Domain.WaterTreatmentPlant waterTreatmentPlant);
     public Task DeleteWaterTreatmentPlant(Guid id);
+    public Task<IEnumerable<Building>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius);
 }

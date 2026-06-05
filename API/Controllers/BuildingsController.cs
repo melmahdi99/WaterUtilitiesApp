@@ -1,4 +1,5 @@
 using Application;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -20,6 +21,7 @@ namespace API.Controllers
         }
 
         // get all buildings
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetBuildingDto>>> GetBuildingsAsync()
         {
@@ -34,6 +36,7 @@ namespace API.Controllers
         }
 
         // get building by ID
+        [Authorize(Roles ="Admin")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<GetBuildingDto>> GetBuildingById(Guid id)
         {
@@ -47,6 +50,7 @@ namespace API.Controllers
         }
 
         // create a building
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult<GetBuildingDto>> CreateBuilding(CreateBuildingDto dto)
         {
@@ -55,6 +59,7 @@ namespace API.Controllers
         }
 
         // edit a building
+        [Authorize(Roles ="Admin")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> EditBuilding(Guid id, CreateBuildingDto dto)
         {
@@ -70,6 +75,7 @@ namespace API.Controllers
         }
 
         // delete a building
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteBuilding(Guid id)
         {
