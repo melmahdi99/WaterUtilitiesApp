@@ -37,7 +37,8 @@ namespace API.Controllers
                 {
                     FirstName = user.FirstName!,
                     LastName = user.LastName!,
-                    Email = user.Email!
+                    Email = user.Email!,
+                    Role = "User"
                 });
             }
 
@@ -57,13 +58,15 @@ namespace API.Controllers
             if(User.Identity?.IsAuthenticated == false) return Unauthorized();
             var user = await _signInManager.UserManager.GetUserAsync(User);
             if(user == null) return Unauthorized();
+            var role = await _signInManager.UserManager.GetRolesAsync(user);
             return Ok(new
             {   //Edit here
                 user.Id,
                 user.FirstName,
                 user.LastName,
                 user.CustomerId,
-                user.Email
+                user.Email,
+                Role = role
             });
         }
 
@@ -98,7 +101,8 @@ namespace API.Controllers
             {
                 FirstName = user.FirstName!,
                 LastName = user.LastName!,
-                Email = user.Email!
+                Email = user.Email!,
+                Role = "Admin"
             });
         }
 
