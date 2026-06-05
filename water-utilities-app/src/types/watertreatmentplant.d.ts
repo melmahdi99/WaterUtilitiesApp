@@ -7,6 +7,6 @@ export interface WaterTreatmentPlant{
     streetSuffix: string,
     zipCode: number,
     kingdomName: string,
-    lat: number,
-    long: number
+    latitude: number,
+    longitude: number
 }

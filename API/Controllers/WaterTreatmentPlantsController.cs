@@ -1,4 +1,5 @@
 using Application.WaterTreatmentPlant;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,7 @@ namespace API.Controllers
             return Ok(waterTreatmentPlant);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteWaterTreatmentPlantById(Guid id)
         {
@@ -42,6 +44,7 @@ namespace API.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateWaterTreatmentPlant(CreateWaterTreatmentPlantDto dto)
         {
@@ -51,12 +54,13 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetWaterTreatmentPlantById), new{id = created.Id}, created);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateWaterTreatmentPlant(ReadWaterTreatmentPlantDto dto)
+        [Authorize(Roles ="Admin")]
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateWaterTreatmentPlant(Guid id, ReadWaterTreatmentPlantDto dto)
         {
-            _logger.LogInformation("Request to PUT Water Treatment Plant with ID: {id}", dto.Id);
+            _logger.LogInformation("Request to PUT Water Treatment Plant with ID: {id}",id);
             await _service.UpdateWaterTreatmentPlant(dto);
-            _logger.LogInformation("Updated Water Treatment Plant with ID: {id}", dto.Id);
+            _logger.LogInformation("Updated Water Treatment Plant with ID: {id}",id);
             return NoContent();
         }
     }

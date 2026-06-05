@@ -10,6 +10,8 @@ import WaterTreatmentPlantsList from "../WaterTreatmentPlants/WaterTreatmentPlan
 import WaterTreatmentPlantsForm from "../WaterTreatmentPlants/WaterTreatmentPlantsForm"
 import WaterTreatmentPlantDetails from '../WaterTreatmentPlants/WaterTreatmentPlantDetails'
 import UserInfo from "./UserInfo";
+import CustomerDashboard from "../Customers/CustomerDashboard";
+import CustomerDetails from "../Customers/CustomerDetails";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +21,8 @@ export const router = createBrowserRouter([
             {element: <RequireAuth/>, children: [
                 {path: 'createWaterTreatmentPlant', element: <WaterTreatmentPlantsForm/>},
                 {path: 'waterTreatmentPlants/manage/:id', element: <WaterTreatmentPlantsForm/>},
+                {path: 'customers/manage/:id', element: <CustomerDetails/>},
+                
             ]},
             {path: 'accounts/user-info', element: <UserInfo/>},
             {path: '', element: <Welcome/>},
@@ -28,7 +32,11 @@ export const router = createBrowserRouter([
             {path: 'buildings', element: <BuildingDashboard/>},
             {path: 'buildings/:id', element: <BuildingDetails/>},
             {path: 'buildings/create', element: <BuildingForm/>},
-            {path: 'buildings/manage/:id', element: <BuildingForm/>}
+            {path: 'buildings/manage/:id', element: <BuildingForm/>},
+            {path: 'customers', element: <CustomerDashboard/>},
+            {path: 'customers/:id', element: <CustomerDetails/>},
+            
+
         ]
     }
 ])
