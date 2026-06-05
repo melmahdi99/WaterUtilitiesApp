@@ -90,10 +90,13 @@ public class DbInit
             };
             for (int i = 0; i < 200; i++)
             {
+                var fn = firstNames[random.Next(firstNames.Count)];
+                var ln = lastNames[random.Next(lastNames.Count)];
                 var customer = new Customer
                 {
-                    FirstName = firstNames[random.Next(firstNames.Count)],
-                    LastName = lastNames[random.Next(lastNames.Count)]
+                    FirstName = fn,
+                    LastName = ln,
+                    Email = fn[0] + ln + random.Next(1000, 9000) + "@test.com"
                 };
                 customers.Add(customer);
             }

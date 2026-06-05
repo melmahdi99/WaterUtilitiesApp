@@ -12,5 +12,7 @@ public class Customer
     public required string FirstName { get; set; }
     [Column(TypeName="nvarchar(55)")]
     public required string LastName { get; set; }
+    [EmailAddress]
+    public required string Email {get; set;}
     public List<Billing> Bills { get; set; }
 }
