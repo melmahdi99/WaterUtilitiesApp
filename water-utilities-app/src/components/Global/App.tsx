@@ -1,13 +1,25 @@
-//import { useState } from 'react'
-import { CssBaseline } from '@mui/material'
-//import { Outlet } from 'react-router'
+import { useState } from 'react'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { Outlet } from 'react-router'
+import Header from './Header';
+import lightTheme from './lightTheme';
+import darkTheme from './darkTheme';
 
 function App() {
-  //const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState(lightTheme);
 
+  function toggleDarkMode(){
+    if(theme.palette.mode === 'dark') {
+      setTheme(lightTheme)
+    } else setTheme(darkTheme);
+  }
   return (
     <>
-      <CssBaseline></CssBaseline>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Header toggleDarkMode={toggleDarkMode}/>
+        <Outlet/>
+      </ThemeProvider>
     </>
   )
 }

@@ -28,14 +28,14 @@ function Header({toggleDarkMode}:Props){
                     <LightMode/> : <DarkMode/>}
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Event Management App
+                    Water Utilities App
                 </Typography>
                 <List sx={{display:'flex', flexDirection:'row'}}>
                     <ListItem> 
                         <ListItemButtonLink to={`/`}>Home</ListItemButtonLink>
                     </ListItem>
                     <ListItem>
-                        <ListItemButtonLink to={`/activities`}>Activities</ListItemButtonLink>
+                        <ListItemButtonLink to={`/waterTreatmentPlants`}>Water Treatment Plants</ListItemButtonLink>
                     </ListItem>
                     <ListItem>
                         {currentUser ? <ListItemButtonLink to={`/createActivity`}>Create an Activity</ListItemButtonLink> 
