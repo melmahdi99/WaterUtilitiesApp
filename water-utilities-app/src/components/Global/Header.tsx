@@ -38,7 +38,7 @@ function Header({toggleDarkMode}:Props){
                         <ListItemButtonLink to={`/waterTreatmentPlants`}>Water Treatment Plants</ListItemButtonLink>
                     </ListItem>
                     <ListItem>
-                        {currentUser ? <ListItemButtonLink to={`/createActivity`}>Create an Activity</ListItemButtonLink> 
+                        {currentUser ? <ListItemButtonLink to={`/accounts/user-info`}>Account</ListItemButtonLink> 
                         : <ListItemButtonLink to={`/login`}>Login</ListItemButtonLink>}
                     </ListItem>
                 </List>

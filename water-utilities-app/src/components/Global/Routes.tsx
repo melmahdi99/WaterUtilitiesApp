@@ -8,6 +8,8 @@ import BuildingDetails from "../Buildings/BuildingDetails";
 import BuildingForm from "../Buildings/BuildingForm";
 import WaterTreatmentPlantsList from "../WaterTreatmentPlants/WaterTreatmentPlantsList";
 import WaterTreatmentPlantsForm from "../WaterTreatmentPlants/WaterTreatmentPlantsForm"
+import WaterTreatmentPlantDetails from '../WaterTreatmentPlants/WaterTreatmentPlantDetails'
+import UserInfo from "./UserInfo";
 
 export const router = createBrowserRouter([
     {
@@ -16,12 +18,13 @@ export const router = createBrowserRouter([
         children: [
             {element: <RequireAuth/>, children: [
                 {path: 'createWaterTreatmentPlant', element: <WaterTreatmentPlantsForm/>},
-                {path: 'activities/manage/:id', element: <WaterTreatmentPlantsForm/>},
+                {path: 'waterTreatmentPlants/manage/:id', element: <WaterTreatmentPlantsForm/>},
             ]},
+            {path: 'accounts/user-info', element: <UserInfo/>},
             {path: '', element: <Welcome/>},
             {path: 'login', element: <LoginForm/>},
             {path: 'waterTreatmentPlants', element: <WaterTreatmentPlantsList/>},
-            //{path: 'waterTreatmentPlants/:id', element: <WaterTreatmentPlantDetails/>},
+            {path: 'waterTreatmentPlants/:id', element: <WaterTreatmentPlantDetails/>},
             {path: 'buildings', element: <BuildingDashboard/>},
             {path: 'buildings/:id', element: <BuildingDetails/>},
             {path: 'buildings/create', element: <BuildingForm/>},
