@@ -3,6 +3,7 @@ import type { WaterTreatmentPlant } from '../../types/watertreatmentplant';
 import { Button, Card, Chip, CardActions, CardContent, Typography } from '@mui/material';
 import { useWaterTreatmentPlants } from './useWaterTreatmentPlants';
 import { useNavigate } from 'react-router';
+import { useAccount } from '../Global/useAccount';
 
 type Props = {
     waterTreatmentPlant: WaterTreatmentPlant;
@@ -10,12 +11,15 @@ type Props = {
 
 function WaterTreatmentPlantCard({waterTreatmentPlant} : Props) {
 
+    const {role} = useAccount();
     const navigate = useNavigate();
     const {deleteWaterTreatmentPlant} = useWaterTreatmentPlants();
     const address = `${waterTreatmentPlant.streetNum} ${waterTreatmentPlant.streetName} ${waterTreatmentPlant.streetSuffix} ${waterTreatmentPlant.zipCode}`;
 
   return (
-    <Card>
+    <Card sx={{
+        m: 2
+    }}>
         <CardContent>
             <Typography sx={{fontWeight: 'bold'}}>{address}</Typography>
             <Typography>Capacity: {waterTreatmentPlant.waterVolumeCapacity}</Typography>
@@ -23,7 +27,7 @@ function WaterTreatmentPlantCard({waterTreatmentPlant} : Props) {
         <CardActions>
             <Chip label = {waterTreatmentPlant.kingdomName} variant='outlined'/>
             <Button onClick={() => navigate(`/waterTreatmentPlants/${waterTreatmentPlant.id}`)}>View</Button>
-            <Button onClick={() => deleteWaterTreatmentPlant.mutateAsync(waterTreatmentPlant.id)} color='error'>Delete</Button>
+            {role === 'Admin' && <Button onClick={() => deleteWaterTreatmentPlant.mutateAsync(waterTreatmentPlant.id)} color='error'>Delete</Button>}
         </CardActions>
     </Card>
   )

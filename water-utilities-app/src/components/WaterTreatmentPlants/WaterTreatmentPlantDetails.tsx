@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, Typography } from '@mui/materia
 import { useWaterTreatmentPlants } from './useWaterTreatmentPlants';
 import { NavLink, useNavigate, useParams } from 'react-router';
 
-function ActivityDetails() {
+function WaterTreatmentPlantDetails() {
 
     const navigate = useNavigate();
     const {id} = useParams();
@@ -17,12 +17,13 @@ function ActivityDetails() {
         <CardContent>
             <Typography variant='h4'>{address}</Typography>
             <Typography>Capacity: {waterTreatmentPlant?.waterVolumeCapacity} Gallons/Day</Typography>
+            <Typography>Turbidity: {waterTreatmentPlant?.turbidity}</Typography>
             <Typography variant='subtitle1'>Street: {waterTreatmentPlant?.streetName}</Typography>
             <Typography>Street Suffix: {waterTreatmentPlant?.streetSuffix}</Typography>
             <Typography>ZipCode: {waterTreatmentPlant?.zipCode}</Typography>
             <Typography>Kingdom: {waterTreatmentPlant?.kingdomName}</Typography>
-            <Typography>Lat: {waterTreatmentPlant?.lat}</Typography>
-            <Typography>Long: {waterTreatmentPlant?.long}</Typography>
+            <Typography>Lat: {waterTreatmentPlant?.latitude}</Typography>
+            <Typography>Long: {waterTreatmentPlant?.longitude}</Typography>
         </CardContent>
         <CardActions>
             <Button component={NavLink} to={`/waterTreatmentPlants/manage/${id}`} color="primary">Edit</Button>
@@ -32,4 +33,4 @@ function ActivityDetails() {
   )
 }
 
-export default ActivityDetails
+export default WaterTreatmentPlantDetails

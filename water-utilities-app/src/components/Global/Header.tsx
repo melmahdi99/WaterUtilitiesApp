@@ -10,7 +10,7 @@ type Props = {
 function Header({toggleDarkMode}:Props){
 
     const theme = useTheme();
-    const {currentUser} = useAccount();
+    const {currentUser, role} = useAccount();
     
     return(
         <Box sx={{ flexGrow: 1}}>
@@ -40,6 +40,9 @@ function Header({toggleDarkMode}:Props){
                     <ListItem>
                         {currentUser ? <ListItemButtonLink to={`/accounts/user-info`}>Account</ListItemButtonLink> 
                         : <ListItemButtonLink to={`/login`}>Login</ListItemButtonLink>}
+                    </ListItem>
+                    <ListItem>
+                        {role === 'Admin' && currentUser && <ListItemButtonLink to={`/createWaterTreatmentPlant`}>Create a Water Treatment Plant</ListItemButtonLink> }
                     </ListItem>
                 </List>
                 </Toolbar>

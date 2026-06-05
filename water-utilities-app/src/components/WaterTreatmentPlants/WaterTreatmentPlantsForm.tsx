@@ -6,7 +6,7 @@ import { NavLink, useNavigate, useParams } from 'react-router';
 
 
 
-function ActivityForm() {
+function WaterTreatmentPlantsForm() {
     const navigate = useNavigate();
     const {id} = useParams();
     const {createWaterTreatmentPlant, updateWaterTreatmentPlant, waterTreatmentPlant, isLoadingWaterTreatmentPlant} = useWaterTreatmentPlants(id);
@@ -32,10 +32,6 @@ function ActivityForm() {
         formData.forEach((value, key) => {
             data[key] = value;
         });
-
-        //forces data to populate with the value of
-        //the isCancelled checkbox
-        data.isCancelled = formData.has('isCancelled');
 
         if(waterTreatmentPlant) {
             data.id = waterTreatmentPlant.id;
@@ -68,8 +64,13 @@ function ActivityForm() {
         component='form' 
         onSubmit={handleSubmit} 
         direction={'column'} 
-        spacing={1}>
-            <Typography variant='h5'>{waterTreatmentPlant ? 'Edit Water Treatment Plant' : 'Create Water Treatment Plant'}</Typography>
+        spacing={1}
+        sx={{
+            maxWidth: '400px',
+            mx: 'auto',
+            paddingTop: '50px'
+        }}>
+            <Typography variant='h5' sx={{display: 'flex', justifyContent:'center'}}>{waterTreatmentPlant ? 'Edit Water Treatment Plant' : 'Create Water Treatment Plant'}</Typography>
 
             <TextField 
             label="WaterVolumeCapacity" 
@@ -115,21 +116,20 @@ function ActivityForm() {
             
             <TextField label="Latitude" 
             name="latitude" 
-            defaultValue={waterTreatmentPlant?.lat} 
+            defaultValue={waterTreatmentPlant?.latitude} 
             />
 
             <TextField 
             label="Longitude" 
             name="longitude" 
-            defaultValue={waterTreatmentPlant?.long} 
+            defaultValue={waterTreatmentPlant?.longitude} 
             />
 
-            /
-
             <Button type='submit' variant='contained'>Submit</Button>
-            {waterTreatmentPlant && <Button component={NavLink} to={`/waterTreatmentPlants/${waterTreatmentPlant.id}`}>Cancel</Button>}
+            {waterTreatmentPlant && <Button component={NavLink} 
+            to={`/waterTreatmentPlants/${waterTreatmentPlant.id}`}>Cancel</Button>}
         </Stack>
   )
 }
 
-export default ActivityForm
+export default WaterTreatmentPlantsForm

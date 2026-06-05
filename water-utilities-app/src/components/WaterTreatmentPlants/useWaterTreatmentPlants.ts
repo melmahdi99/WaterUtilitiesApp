@@ -11,9 +11,10 @@ export const useWaterTreatmentPlants = (id?: string) => {
         queryFn: async () =>  {
             const response = await agent.get<WaterTreatmentPlant[]>('/waterTreatmentPlants');
             return response.data;
-        }
+        },
 
         // staleTime: 1000 * 60 * 5
+        enabled: !id && location.pathname === '/waterTreatmentPlants'
     });
 
     const {data: waterTreatmentPlant, isLoading: isLoadingWaterTreatmentPlant} = useQuery({
@@ -38,7 +39,7 @@ export const useWaterTreatmentPlants = (id?: string) => {
 
     const createWaterTreatmentPlant = useMutation({
         mutationFn: async (waterTreatmentPlant: WaterTreatmentPlant) => {
-            const response = await agent.post(`/waterTreatmentPlants/}`, waterTreatmentPlant);
+            const response = await agent.post(`/waterTreatmentPlants/`, waterTreatmentPlant);
             return response.data;
         },
         onSuccess: async () => {

@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { useLocation, Navigate } from 'react-router';
+import { useLocation, Navigate, Outlet } from 'react-router';
 import { useAccount } from './useAccount';
 
 function RequireAuth() {
@@ -10,9 +10,9 @@ function RequireAuth() {
     if(isLoadingUser) return <Typography>Loading...</Typography>
 
     if(!currentUser) return <Navigate to='/login' state={{from: location}}/>
-    
+
     return (
-      <div>RequireAuth</div>
+      <Outlet/>
     )
 }
 
