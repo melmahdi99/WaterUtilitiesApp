@@ -1,6 +1,7 @@
 using System;
 using AutoMapper;
 using Domain;
+using Persistence;
 using Persistence.WaterTreatmentPlant;
 
 namespace Application.WaterTreatmentPlant;
@@ -45,5 +46,11 @@ public class WaterTreatmentPlantService: IWaterTreatmentPlantService
     public async Task DeleteWaterTreatmentPlant(Guid id)
     {
         await _repo.DeleteWaterTreatmentPlant(id);
+    }
+
+    public async Task<IEnumerable<GetBuildingDto>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius)
+    {
+        var buildings = await _repo.GetBuildingsInServiceAreaAsync(Lat, Long, radius);
+        return buildings.Select(a => _mapper.Map<GetBuildingDto>(a));
     }
 }

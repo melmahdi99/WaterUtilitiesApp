@@ -1,3 +1,4 @@
+using Application;
 using Application.WaterTreatmentPlant;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +18,7 @@ namespace API.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetWaterTreatmentPlants()
         {
@@ -62,6 +64,19 @@ namespace API.Controllers
             await _service.UpdateWaterTreatmentPlant(dto);
             _logger.LogInformation("Updated Water Treatment Plant with ID: {id}",id);
             return NoContent();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("Buffer")]
+        public async Task<ActionResult<IEnumerable<GetBuildingDto>>> GetBuildingInServiceArea(
+            [FromQuery]double latitude, [FromQuery]double longitude, [FromQuery]double radius)
+        {
+            var buildings = await _service.GetBuildingsInServiceAreaAsync(latitude, longitude, radius);
+            if (!buildings.Any())
+            {
+                return NotFound();
+            }
+            return Ok(buildings);
         }
     }
 }

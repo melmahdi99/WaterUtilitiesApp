@@ -1,26 +1,26 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain;
 
 public class Building
 {
-    public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+    [Column(TypeName="nvarchar(55)")]
     public required string BuildingType { get; set; }
     public int StreetNum { get; set; }
-    public string StreetName { get; set; }
-    public string StreetSuffix { get; set; }
+    [Column(TypeName="nvarchar(55)")]
+    public required string StreetName { get; set; }
+    [Column(TypeName="nvarchar(55)")]
+    public string? StreetSuffix { get; set; }
+    [Range(10000, 99999)]
     public int ZipCode { get; set; }
-    public string CityName { get; set; }
-    public string KingdomName { get; set; }
+    [Column(TypeName="nvarchar(55)")]
+    public required string KingdomName { get; set; }
+    [Column(TypeName="decimal(10,5)")]
     public decimal Latitude { get; set; }
+    [Column(TypeName="decimal(10,5)")]
     public decimal Longitude { get; set; }
-
-    //unsure of the plan for this one
-    public string ServiceArea { get; set; }
-
-    //FKs
-    //public Guid AddressId { get; set; }
-
-    //I think this is a foreign key?
-    public int WaterMeterId { get; set; }
 }
