@@ -1,6 +1,6 @@
 import { Button, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
-import type { Billing } from '../../types';
+import type { Billing } from '../../types/billing';
 import { useBillings } from './useBillings';
 import { NavLink, useNavigate, useParams } from 'react-router';
 

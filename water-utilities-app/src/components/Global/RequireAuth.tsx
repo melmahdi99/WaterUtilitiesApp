@@ -10,9 +10,10 @@ function RequireAuth() {
     if(isLoadingUser) return <Typography>Loading...</Typography>
 
     if(!currentUser) return <Navigate to='/login' state={{from: location}}/>
-  return (
-    <div>RequireAuth</div>
-  )
+    
+    return (
+      <div>RequireAuth</div>
+    )
 }
 
 export default RequireAuth
