@@ -1,4 +1,4 @@
-import { Button, Checkbox, FormControlLabel, Stack, TextField, Typography } from '@mui/material'
+import { Button, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
 import type { Customer } from '../../types/Customer';
 import { useCustomer } from './useCustomer';
@@ -63,6 +63,12 @@ function CustomerForm() {
         label="Last Name"
         name="lastName"
         defaultValue={customer?.lastName}
+        />
+
+        <TextField
+        label="Email"
+        name="email"
+        defaultValue={customer?.email}
         />
 
 

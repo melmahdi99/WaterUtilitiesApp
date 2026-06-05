@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Customer } from '../../types/Customer';
-import { Button, Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { useCustomer } from './useCustomer';
 import { useNavigate } from 'react-router';
 
