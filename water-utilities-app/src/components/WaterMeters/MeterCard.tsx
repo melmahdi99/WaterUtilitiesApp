@@ -16,7 +16,7 @@ function MeterCard({ meter }: Props) {
             <CardContent>
                 <Typography variant='h6'>Meter {meter.id.slice(0, 8)}...</Typography>
                 <Typography variant='body2' color='text.secondary'>
-                    Reading {meter.toFixed(3)} m³
+                    Reading {meter.meterReading.toFixed(3)} m³
                 </Typography>
                 <Typography variant='body2' color='text.secondary'>
                     Building: {meter.buildingId.slice(0, 8)}...

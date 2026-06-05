@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Billing } from "../../types";
+import type { Billing } from "../../types/billing";
 import agent from "../Global/agent";
 
 

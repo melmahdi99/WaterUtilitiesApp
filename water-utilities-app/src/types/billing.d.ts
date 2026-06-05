@@ -6,5 +6,5 @@ export interface Billing {
     timePaid: string,
     isPaid: string,
     customerId: string,
-    watermeterId: string
+    waterMeterId: string
 }

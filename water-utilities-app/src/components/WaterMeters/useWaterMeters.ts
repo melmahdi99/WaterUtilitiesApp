@@ -14,6 +14,15 @@ export const useWaterMeters = (id?: string) => {
         enabled: !!id
     });
 
+    const { data: meter, isLoading: isLoadingMeter } = useQuery({
+        queryKey: ['waterMeters', id],
+        queryFn: async () => {
+            const response = await agent.get<WaterMeter>(`/watermeters/$(id)`);
+            return response.data;
+        },
+        enabled: !!id
+    });
+
     const updateMeter = useMutation({
         mutationFn: async (meter: WaterMeter) => {
             await agent.put(`/watermeters/$(meter.id)`, meter);
@@ -54,5 +63,7 @@ export const useWaterMeters = (id?: string) => {
         updateMeter,
         createMeter,
         deleteMeter,
+        meter,
+        isLoadingMeter
     }
 }
