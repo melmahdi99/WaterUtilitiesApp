@@ -2,7 +2,7 @@ import { Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router';
 import { useBuildings } from './useBuildings.ts';
-import type { Building, CreateBuildingDto } from './building.d.ts';
+import type { Building, CreateBuildingDto } from '../../types/building';
 
 
 const kingdoms = ['Ethonia', 'Southport', 'Westhold', 'Northreach'];

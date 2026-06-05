@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { useBuildings } from './useBuildings.tsx';
-import type { Building } from './building.d.ts';
+import type { Building } from '../../types/building';
 
 
 type Props = {

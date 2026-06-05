@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import agent from "../Global/agent";
-import type { Building, CreateBuildingDto } from './building.d.ts';
+import type { Building, CreateBuildingDto } from '../../types/building';
 
 
 
