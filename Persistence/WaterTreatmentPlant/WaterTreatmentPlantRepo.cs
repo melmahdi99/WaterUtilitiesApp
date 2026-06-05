@@ -44,7 +44,7 @@ public class WaterTreatmentPlantRepo : IWaterTreatmentPlantRepo
     public async Task DeleteWaterTreatmentPlant(Guid id) =>
         await _context.WaterTreatmentPlants.Where(w => w.Id == id).ExecuteDeleteAsync();
     
-    public async Task<IEnumerable<Building>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius)
+    public async Task<IEnumerable<Domain.Building>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius)
     {
         double R = 6371; 
         var buildings = await _context.Buildings
