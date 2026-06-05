@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
         children: [
             {element: <RequireAuth/>, children: [
                 {path: 'createWaterTreatmentPlant', element: <WaterTreatmentPlantsForm/>},
-                {path: 'activities/manage/:id', element: <WaterTreatmentPlantsForm/>},
+                {path: 'waterTreatmentPlants/manage/:id', element: <WaterTreatmentPlantsForm/>}
             ]},
             {path: '', element: <Welcome/>},
             {path: 'login', element: <LoginForm/>},
