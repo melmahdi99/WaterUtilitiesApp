@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Application;
- 
 public class CreateBuildingDto
 {
     public required string BuildingType { get; set; }
@@ -12,4 +10,6 @@ public class CreateBuildingDto
     [Range(10000, 99999)]
     public int ZipCode { get; set; }
     public required string KingdomName { get; set; }
+    public decimal Latitude { get; set; }
+    public decimal Longitude { get; set; }
 }
