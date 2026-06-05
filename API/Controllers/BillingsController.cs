@@ -1,4 +1,5 @@
 using Application;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -16,6 +17,7 @@ namespace API.Controllers
             _billingservice = service;
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReadBillingDto>>> GetBillings()
         {
@@ -41,6 +43,7 @@ namespace API.Controllers
             return Ok(billing);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult<ReadBillingDto>> CreateBilling(CreateBillingDto dto)
         {
@@ -48,6 +51,7 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetBillingById), new {id = created.Id}, created);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPut ("{id:guid}")]
         public async Task<IActionResult> UpdateBilling(FullBillingDto billing)
         {
@@ -55,6 +59,7 @@ namespace API.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteBilling(Guid id)
         {

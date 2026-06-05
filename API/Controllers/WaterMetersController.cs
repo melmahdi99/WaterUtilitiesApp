@@ -1,4 +1,5 @@
 using Application;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace API.Controllers
         }
 
 
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public async Task<ActionResult<List<WaterMeterResponseDTO>>> GetAllAsync()
         {
@@ -42,7 +44,7 @@ namespace API.Controllers
         }
 
 
-
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult<WaterMeterResponseDTO>> Create(CreateWaterMeterDTO dto)
         {
@@ -53,7 +55,7 @@ namespace API.Controllers
 
 
 
-
+        [Authorize(Roles ="Admin")]
         [HttpPut("{id}")]
         public async Task<ActionResult<WaterMeterResponseDTO>> UpdateAsync(Guid id, UpdateWaterMeterDTO dto)
         {
@@ -88,7 +90,7 @@ namespace API.Controllers
         //}
 
 
-
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync (Guid id)
         {

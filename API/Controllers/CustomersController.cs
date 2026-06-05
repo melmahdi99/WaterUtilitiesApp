@@ -3,11 +3,13 @@ using Application.Customer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers;
 
 public class CustomersController(AppDbContext context) : ControllerBase
 {
+    [Authorize(Roles ="Admin")]
     [HttpGet]
     public async Task<ActionResult<List<CustomerDto>>> GetCustomers()
     {
@@ -25,6 +27,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
         return Ok(customers);
     }
 
+    [Authorize(Roles ="Admin")]
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<CustomerDto>> GetCustomer(Guid id)
     {
@@ -94,6 +97,8 @@ public class CustomersController(AppDbContext context) : ControllerBase
     //     return NoContent();
     // }
 
+
+    [Authorize(Roles ="Admin")]
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteCustomer(Guid id)
     {

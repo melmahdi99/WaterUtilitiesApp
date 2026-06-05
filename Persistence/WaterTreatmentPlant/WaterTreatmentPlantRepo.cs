@@ -1,7 +1,7 @@
 using System;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Persistence;
 namespace Persistence.WaterTreatmentPlant;
 
 public class WaterTreatmentPlantRepo : IWaterTreatmentPlantRepo
@@ -44,4 +44,17 @@ public class WaterTreatmentPlantRepo : IWaterTreatmentPlantRepo
     public async Task DeleteWaterTreatmentPlant(Guid id) =>
         await _context.WaterTreatmentPlants.Where(w => w.Id == id).ExecuteDeleteAsync();
     
+    public async Task<IEnumerable<Building>> GetBuildingsInServiceAreaAsync(double Lat, double Long, double radius)
+    {
+        double R = 6371; 
+        var buildings = await _context.Buildings
+        .Where(l => (R * Math.Acos(
+            Math.Sin((Lat * Math.PI / 180) * Math.Sin((double)l.Latitude * Math.PI / 180)) +
+            Math.Cos(Lat * Math.PI / 180) * Math.Cos((double)l.Latitude * Math.PI / 180) *
+            Math.Cos(((double)l.Longitude * Math.PI / 180) - (Long * Math.PI / 180))
+        )) <= radius)
+        .ToListAsync();
+        
+        return buildings;
+    }
 }
