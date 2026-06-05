@@ -1,11 +1,13 @@
 import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { useWaterTreatmentPlants } from './useWaterTreatmentPlants';
 import { NavLink, useNavigate, useParams } from 'react-router';
+import { useAccount } from '../Global/useAccount';
 
 function WaterTreatmentPlantDetails() {
 
     const navigate = useNavigate();
     const {id} = useParams();
+    const {currentUser} = useAccount();
     const {waterTreatmentPlant} = useWaterTreatmentPlants(id);
     const address = `${waterTreatmentPlant?.streetNum} ${waterTreatmentPlant?.streetName} ${waterTreatmentPlant?.streetSuffix}, ${waterTreatmentPlant?.zipCode}`;
 
@@ -26,7 +28,7 @@ function WaterTreatmentPlantDetails() {
             <Typography>Long: {waterTreatmentPlant?.longitude}</Typography>
         </CardContent>
         <CardActions>
-            <Button component={NavLink} to={`/waterTreatmentPlants/manage/${id}`} color="primary">Edit</Button>
+            {currentUser?.role == 'Admin' && <Button component={NavLink} to={`/waterTreatmentPlants/manage/${id}`} color="primary">Edit</Button>}
             <Button onClick={() => navigate('/waterTreatmentPlants')}>Cancel</Button>
         </CardActions>
     </Card>

@@ -16,4 +16,14 @@ agent.interceptors.response.use(async (response) => {
     }
 });
 
+export const logout = async () => {
+    try {
+        const response = await agent.post('accounts/logout'); 
+        return response.data;
+    } catch (error) {
+        console.error("Logout API call failed", error);
+        throw error;
+    }   
+};
+
 export default agent;

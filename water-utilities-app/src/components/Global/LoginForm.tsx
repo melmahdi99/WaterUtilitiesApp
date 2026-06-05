@@ -62,6 +62,7 @@ function LoginForm() {
             </Box>
             <TextField label="Email" name="email" sx={{maxWidth: '17vw', width:'100%'}}/>
             <TextField label="Password" name="password" type='password' sx={{maxWidth: '17vw', width:'100%'}}/>
+            {/* <Button>Register An Account</Button> */}
             <Button type='submit' variant='contained'>Login</Button>
         </Paper>
     </Box>

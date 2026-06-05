@@ -1,9 +1,14 @@
 import React from 'react'
 import { useAccount } from './useAccount'
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
+import { logout } from './agent';
+import { useNavigate } from 'react-router';
+import { useQueryClient } from '@tanstack/react-query';
 
 function UserInfo() {
     const { currentUser, isLoadingUser} = useAccount();
+    const navigate = useNavigate();
+    const queryClient = useQueryClient();
 
     if(isLoadingUser) {
         return <Box></Box>
@@ -17,6 +22,18 @@ function UserInfo() {
         )
     }
 
+    const handleLogout = async () => {
+        try {
+            await logout();
+            // queryClient.invalidateQueries({ queryKey: ['user'] });
+            // navigate('/')
+            window.location.href = '/';
+        } catch (err) {
+            alert("Failed to logout");
+        }
+        console.log("Logged out successfully");
+    };
+    
     return (
         <Paper elevation={2} sx={{ p: 3, maxWidth: 400, margin: '20px auto' }}>
         <Typography variant="h5">
@@ -28,6 +45,7 @@ function UserInfo() {
             <Typography><strong>First Name:</strong> {currentUser.firstName}</Typography>
             <Typography><strong>Last Name:</strong> {currentUser.lastName}</Typography>
             <Typography><strong>System Role:</strong> {currentUser.role}</Typography>
+            <Button variant='outlined' onClick={handleLogout} >Logout</Button>
         </Box>
         </Paper>
     );

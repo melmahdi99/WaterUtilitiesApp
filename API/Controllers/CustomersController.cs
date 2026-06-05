@@ -7,13 +7,21 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers;
 
-public class CustomersController(AppDbContext context) : ControllerBase
+[ApiController]
+[Route("api/[controller]")]
+public class CustomersController : ControllerBase
 {
+    private readonly AppDbContext _context;
+    public CustomersController(AppDbContext context)
+    {
+        _context = context;
+    }
+
     [Authorize(Roles ="Admin")]
     [HttpGet]
     public async Task<ActionResult<List<CustomerDto>>> GetCustomers()
     {
-        var customers = await context.Customers
+        var customers = await _context.Customers
             .AsNoTracking()
             .Select(customer => new CustomerDto
             {
@@ -32,7 +40,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<CustomerDto>> GetCustomer(Guid id)
     {
-        var customer = await context.Customers
+        var customer = await _context.Customers
             .AsNoTracking()
             .Where(customer => customer.Id == id)
             .Select(customer => new CustomerDto
@@ -51,7 +59,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<CustomerDto>> CreateCustomer(CreateCustomerDto customerDto)
     {
-        // var billingExists = await context.Billings.AnyAsync(billing => billing.Id == customerDto.BillingId);
+        // var billingExists = await _context.Billings.AnyAsync(billing => billing.Id == customerDto.BillingId);
 
         // if (!billingExists)
         // {
@@ -65,8 +73,8 @@ public class CustomersController(AppDbContext context) : ControllerBase
             Email = customerDto.Email
         };
 
-        context.Customers.Add(customer);
-        await context.SaveChangesAsync();
+        _context.Customers.Add(customer);
+        await _context.SaveChangesAsync();
 
         var createdCustomer = ToDto(customer);
 
@@ -76,14 +84,14 @@ public class CustomersController(AppDbContext context) : ControllerBase
     // [HttpPut("{id:guid}")]
     // public async Task<IActionResult> UpdateCustomer(Guid id, UpdateCustomerDto customerDto)
     // {
-    //     var customer = await context.Customers.FindAsync(id);
+    //     var customer = await _context.Customers.FindAsync(id);
 
     //     if (customer is null)
     //     {
     //         return NotFound();
     //     }
 
-    //     var billingExists = await context.Billings
+    //     var billingExists = await _context.Billings
     //         .AnyAsync(billing => billing.Id == customerDto.Bills);
 
     //     if (!billingExists)
@@ -95,7 +103,7 @@ public class CustomersController(AppDbContext context) : ControllerBase
     //     customer.LastName = customerDto.LName;
     //     customer.Bills = customerDto.Bills;
 
-    //     await context.SaveChangesAsync();
+    //     await _context.SaveChangesAsync();
 
     //     return NoContent();
     // }
@@ -105,15 +113,15 @@ public class CustomersController(AppDbContext context) : ControllerBase
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteCustomer(Guid id)
     {
-        var customer = await context.Customers.FindAsync(id);
+        var customer = await _context.Customers.FindAsync(id);
 
         if (customer is null)
         {
             return NotFound();
         }
 
-        context.Customers.Remove(customer);
-        await context.SaveChangesAsync();
+        _context.Customers.Remove(customer);
+        await _context.SaveChangesAsync();
 
         return NoContent();
     }

@@ -11,7 +11,7 @@ type Props = {
 
 function WaterTreatmentPlantCard({waterTreatmentPlant} : Props) {
 
-    const {role} = useAccount();
+    const {currentUser} = useAccount();
     const navigate = useNavigate();
     const {deleteWaterTreatmentPlant} = useWaterTreatmentPlants();
     const address = `${waterTreatmentPlant.streetNum} ${waterTreatmentPlant.streetName} ${waterTreatmentPlant.streetSuffix} ${waterTreatmentPlant.zipCode}`;
@@ -27,7 +27,7 @@ function WaterTreatmentPlantCard({waterTreatmentPlant} : Props) {
         <CardActions>
             <Chip label = {waterTreatmentPlant.kingdomName} variant='outlined'/>
             <Button onClick={() => navigate(`/waterTreatmentPlants/${waterTreatmentPlant.id}`)}>View</Button>
-            {role === 'Admin' && <Button onClick={() => deleteWaterTreatmentPlant.mutateAsync(waterTreatmentPlant.id)} color='error'>Delete</Button>}
+            {currentUser?.role == 'Admin' && <Button onClick={() => deleteWaterTreatmentPlant.mutateAsync(waterTreatmentPlant.id)} color='error'>Delete</Button>}
         </CardActions>
     </Card>
   )

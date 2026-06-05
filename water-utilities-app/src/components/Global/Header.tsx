@@ -13,7 +13,7 @@ function Header({toggleDarkMode}:Props){
     const {currentUser, role} = useAccount();
     
     return(
-        <Box sx={{ flexGrow: 1}}>
+          <Box sx={{ flexGrow: 1}}>
             <AppBar position="static">
                 <Toolbar>
                 <IconButton
@@ -31,14 +31,26 @@ function Header({toggleDarkMode}:Props){
                     Water Utilities App
                 </Typography>
                 <List sx={{display:'flex', flexDirection:'row'}}>
-                    <ListItem> 
+                    <ListItem>
                         <ListItemButtonLink to={`/`}>Home</ListItemButtonLink>
                     </ListItem>
                     <ListItem>
                         <ListItemButtonLink to={`/waterTreatmentPlants`}>Water Treatment Plants</ListItemButtonLink>
                     </ListItem>
                     <ListItem>
-                        {currentUser ? <ListItemButtonLink to={`/accounts/user-info`}>Account</ListItemButtonLink> 
+                        <ListItemButtonLink to={`/buildings`}>Buildings</ListItemButtonLink>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemButtonLink to={`/watermeters`}>Water Meters</ListItemButtonLink>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemButtonLink to={`/customers`}>Customers</ListItemButtonLink>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemButtonLink to={`/billings`}>Billings</ListItemButtonLink>
+                    </ListItem>
+                    <ListItem>
+                        {currentUser ? <ListItemButtonLink to={`/accounts/user-info`}>Account</ListItemButtonLink>
                         : <ListItemButtonLink to={`/login`}>Login</ListItemButtonLink>}
                     </ListItem>
                     <ListItem>
