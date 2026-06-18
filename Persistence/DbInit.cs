@@ -90,10 +90,13 @@ public class DbInit
             };
             for (int i = 0; i < 200; i++)
             {
+                var fn = firstNames[random.Next(firstNames.Count)];
+                var ln = lastNames[random.Next(lastNames.Count)];
                 var customer = new Customer
                 {
-                    FirstName = firstNames[random.Next(firstNames.Count)],
-                    LastName = lastNames[random.Next(lastNames.Count)]
+                    FirstName = fn,
+                    LastName = ln,
+                    Email = fn[0] + ln + random.Next(1000, 9000) + "@test.com"
                 };
                 customers.Add(customer);
             }
@@ -138,14 +141,11 @@ public class DbInit
                     billing.IsPaid = true;
                 };
             };
-        
-        var waterTreatmentPlants = new List<WaterTreatmentPlant>();
 
         context.Billings.AddRange(billings);
         context.Buildings.AddRange(buildings);
         context.WaterMeters.AddRange(meters);
         context.Customers.AddRange(customers);
-        context.WaterTreatmentPlants.AddRange(waterTreatmentPlants);
         await context.SaveChangesAsync();
     }
 }

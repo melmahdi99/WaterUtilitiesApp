@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedIdentitySkeleton : Migration
+    public partial class restart : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,6 +51,72 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Buildings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BuildingType = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    StreetNum = table.Column<int>(type: "int", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    StreetSuffix = table.Column<string>(type: "nvarchar(55)", nullable: true),
+                    ZipCode = table.Column<int>(type: "int", nullable: false),
+                    KingdomName = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    Latitude = table.Column<decimal>(type: "decimal(10,5)", nullable: false),
+                    Longitude = table.Column<decimal>(type: "decimal(10,5)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Buildings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(55)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WaterMeters",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MeterReading = table.Column<decimal>(type: "decimal(7,2)", nullable: false),
+                    IsOnline = table.Column<bool>(type: "bit", nullable: false),
+                    BuildingId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaterMeters", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WaterTreatmentPlants",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WaterVolumeCapacity = table.Column<int>(type: "int", nullable: false),
+                    Turbidity = table.Column<decimal>(type: "decimal(7,2)", nullable: false),
+                    StreetNum = table.Column<int>(type: "int", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    StreetSuffix = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    ZipCode = table.Column<int>(type: "int", nullable: false),
+                    KingdomName = table.Column<string>(type: "nvarchar(55)", nullable: false),
+                    Latitude = table.Column<decimal>(type: "decimal(10,5)", nullable: false),
+                    Longitude = table.Column<decimal>(type: "decimal(10,5)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaterTreatmentPlants", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,6 +225,30 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Billings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PriceRate = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    TotalAmountDue = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    DueDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    TimePaid = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsPaid = table.Column<bool>(type: "bit", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WaterMeterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Billings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Billings_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -197,6 +287,11 @@ namespace Persistence.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Billings_CustomerId",
+                table: "Billings",
+                column: "CustomerId");
         }
 
         /// <inheritdoc />
@@ -218,10 +313,25 @@ namespace Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Billings");
+
+            migrationBuilder.DropTable(
+                name: "Buildings");
+
+            migrationBuilder.DropTable(
+                name: "WaterMeters");
+
+            migrationBuilder.DropTable(
+                name: "WaterTreatmentPlants");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Customers");
         }
     }
 }
